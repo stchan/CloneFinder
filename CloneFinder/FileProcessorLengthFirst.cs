@@ -204,7 +204,7 @@ namespace CloneFinder
                 insertCommand.Parameters.AddWithValue(sqlFilePathParam, fileInformation.DirectoryName);
                 insertCommand.Parameters.AddWithValue(sqlFileNameParam, fileInformation.Name);
                 insertCommand.Parameters.AddWithValue(sqlFileSizeParam, fileInformation.Length);
-                insertCommand.Parameters.AddWithValue(sqlLastModifyDateParam, fileInformation.LastAccessTime);
+                insertCommand.Parameters.AddWithValue(sqlLastModifyDateParam, fileInformation.LastWriteTime);
                 insertCommand.Parameters.AddWithValue(sqlFileHashParam, null);
                 insertCommand.ExecuteNonQuery();
             }

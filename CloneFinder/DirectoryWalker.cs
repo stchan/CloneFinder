@@ -8,15 +8,27 @@ using System.Security.Cryptography;
 
 namespace CloneFinder
 {
+    /// <summary>
+    /// This class contains methods to walk a directory,
+    /// process the files within, and
+    /// return any duplicates found
+    /// </summary>
     public class DirectoryWalker
     {
         #region Ctor
 
+        /// <summary>
+        /// Ctor
+        /// </summary>
         public DirectoryWalker()
         {
 
         }
 
+        /// <summary>
+        /// Ctor
+        /// </summary>
+        /// <param name="rootDirectory">Path of the directory to start the walk from</param>
         public DirectoryWalker(string rootDirectory) : this()
         {
             if (!String.IsNullOrEmpty(rootDirectory) &&

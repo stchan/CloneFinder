@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
-<WarSetup-Project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" projectRunAfterInstall="true" mainTargetApp="ID_8da3d7ad_c967_48a7_b8ee_2d492ae8ccec" nextUniqueId="1159" projectName="CloneFinder" projectUuid="221ed0c4-95b5-4d69-b4f1-dec19487e774" projectUpgradeUuid="82eb3829-537a-4b72-83e8-4760e55685f5" projectVersion="1.0.1" projectOrganization="Black Telescope Workshop" projectFromWindowsVersion="Windows XP SP 2" projectMustBeAdministratorToInstall="false" project64BitTarget="false" projectTargetDirectory="C:\Code\CloneFinder\Installer" projectTargetName="CloneFinder" projectType="0" projectUserInterface="WixUI_InstallDir">
+<WarSetup-Project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" projectRunAfterInstall="true" mainTargetApp="ID_8da3d7ad_c967_48a7_b8ee_2d492ae8ccec" nextUniqueId="1358" projectName="CloneFinder" projectUuid="3fdefdeb-0e19-4011-a737-a3ac8056ed84" projectUpgradeUuid="82eb3829-537a-4b72-83e8-4760e55685f5" projectVersion="1.0.1" projectOrganization="Black Telescope Workshop" projectFromWindowsVersion="Windows XP SP 2" projectMustBeAdministratorToInstall="false" project64BitTarget="false" projectTargetDirectory="C:\Code\CloneFinder\Installer" projectTargetName="CloneFinder" projectType="0" projectUserInterface="WixUI_InstallDir">
   <LicencePaths>
-    <string>C:\Program Files\Jgaa's Internet\War Setup\Licenses</string>
+    <string>C:\Program Files (x86)\Jgaa's Internet\War Setup\Licenses</string>
+    <string>\.</string>
   </LicencePaths>
   <Virgin>false</Virgin>
-  <projectFeatures featureId="ID810DF2CD953F0BFD2BAA50A1996590A2" featureName="CloneFinder Installer" featureDescription="CloneFinder MSI package" configurableDirectory="APPLICATIONFOLDER" configurableDirectoryDefaultPath="[ProjectName]" enableInDefaultInstall="true" enableInMinimalInstall="true" excludeFromBuild="false">
-    <childFeatures featureId="PROGRAM" featureName="Program" featureDescription="The Main Executable" enableInDefaultInstall="true" enableInMinimalInstall="true" excludeFromBuild="false">
+  <projectFeatures featureId="ID810DF2CD953F0BFD2BAA50A1996590A2" featureName="CloneFinder Installer" featureDescription="CloneFinder MSI package" configurableDirectory="APPLICATIONFOLDER" configurableDirectoryDefaultPath="[ProgramFiles64Folder]\CloneFinder" enableInDefaultInstall="true" enableInMinimalInstall="true" excludeFromBuild="false">
+    <childFeatures featureId="PROGRAM" featureName="Program" featureDescription="The Main Executable" configurableDirectory="" configurableDirectoryDefaultPath="" enableInDefaultInstall="true" enableInMinimalInstall="true" excludeFromBuild="false">
       <components componentId="ID1001" componentGuid="07e07793-433d-4350-b530-387dff102112">
         <componentFiles fileId="ID_e13b2dd5_5a40_4c17_8421_697d4e212ab8" srcName="CloneFinder.dll" srcDirectory="C:\Code\CloneFinder\CloneFinderFrontEnd\bin\Release" dstName="CloneFinder.dll" dstPath="" isTrueTypeFont="false" isComModule="false" typelibGuid="" menuName="CloneFinder" shortcutInProgramFilesMenu="false" shortcutOnDesktop="false" shortcutInQuickLaunch="false" shortcutInStartupFolder="false" shortcutWorkingDirectory="" shortcutCommandArguments="" shortcutDescription="">
           <service StartWhenInstalled="true" Remove="both" id="ID1000" isService="false" userAccount="" userPassword="" cmdLineArguments="" errorControl="normal" interactive="false" loadOrderGroup="" serviceName="" startMode="auto" vital="true" />
@@ -37,9 +38,9 @@
   <projectInstallForCurrentOrAllUsers>1</projectInstallForCurrentOrAllUsers>
   <License>
     <System>true</System>
-    <Name>MIT-X11 License</Name>
+    <Name>X11 License</Name>
   </License>
-  <projectProperties LicencePath="" TopBanner="" BigBanner="" ExclamationIcon="" InfoIcon="" NewIcon="" UpIcon="" VS2003Integration="VS2003_INTEGRATION" VS2005Integration="VS2005_INTEGRATION" UseRelativePaths="true" LaunchAppText="" UseWixUI_ErrorProgressText="true" UseWixUI="true" CreateUninstallShortcut="true" Codepage="1252" ProductLanguage="1033" AlwaysMajorUpgrade="true" SupressValidation="false" Compress="true" BuildTarget="true" PublisherUrl="" SupportContact="" SupportUrl="" SupportPhone="" ReadMeFile="" UpdateUrl="" Comments="" Icon="" EmbedCab="true" MaxCabSize="0" CabCompressionLevel="mszip" InstallerVersion="300">
+  <projectProperties LicencePath="\." TopBanner="" BigBanner="" ExclamationIcon="" InfoIcon="" NewIcon="" UpIcon="" VS2003Integration="VS2003_INTEGRATION" VS2005Integration="VS2005_INTEGRATION" UseRelativePaths="true" LaunchAppText="" UseWixUI_ErrorProgressText="true" UseWixUI="true" CreateUninstallShortcut="true" Codepage="1252" ProductLanguage="1033" AlwaysMajorUpgrade="true" SupressValidation="false" Compress="true" BuildTarget="true" PublisherUrl="" SupportContact="" SupportUrl="" SupportPhone="" ReadMeFile="" UpdateUrl="" Comments="" Icon="" EmbedCab="true" MaxCabSize="0" CabCompressionLevel="mszip" InstallerVersion="300">
     <UiCultures Name="en-US" Enabled="true" />
     <UiCultures Name="de-de" Enabled="false" />
     <UiCultures Name="es-es" Enabled="false" />

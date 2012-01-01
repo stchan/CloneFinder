@@ -10,7 +10,7 @@ to build, and test the project.
 CloneFinder uses/includes the following third party components:
 - Code from MSDN for a breadth-first directory traversal.
 - System.Data.SQLite library (v1.0.66 in particular)
-- Free or CC licensed artwork.
+- Free or CC licensed artwork. (Icons (C) 2008 GoSquared Ltd.)
 
 TO DO
 Redo the GUI with WPF.

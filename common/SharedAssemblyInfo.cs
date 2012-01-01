@@ -15,10 +15,10 @@ using System.Security.Permissions;
 // for example, through the file properties window.
 #if DEBUG
 [assembly: AssemblyConfiguration("Debug")]
-[assembly: AssemblyDescription("Clone Finder (Debug build)\r\n\r\nBreadth first directory traversal code from MSDN.\r\nIcons and graphics from Wikimedia Commons.\r\nSystem.Data.SQLite library provided by SQLite.org.")] // a.k.a. "Comments"
+[assembly: AssemblyDescription("Clone Finder (Debug build)\r\n\r\nBreadth first directory traversal code from MSDN.\r\nIcons (C) 2008 GoSquared Ltd.\r\nOther graphics from Wikimedia Commons.\r\nSystem.Data.SQLite library provided by SQLite.org.")] // a.k.a. "Comments"
 #else
 [assembly: AssemblyConfiguration("Release")]
-[assembly: AssemblyDescription("Clone Finder\r\n\r\nBreadth first directory traversal code from MSDN.\r\nIcons and graphics from Wikimedia Commons.\r\nSystem.Data.SQLite library provided by SQLite.org.")] // a.k.a. "Comments"
+[assembly: AssemblyDescription("\r\n\r\nBreadth first directory traversal code from MSDN.\r\nIcons (C) 2008 GoSquared Ltd.\r\nOther graphics from Wikimedia Commons.\r\nSystem.Data.SQLite library provided by SQLite.org.")] // a.k.a. "Comments"
 #endif
 
 // Setting ComVisible to false makes the types in this assembly not visible 

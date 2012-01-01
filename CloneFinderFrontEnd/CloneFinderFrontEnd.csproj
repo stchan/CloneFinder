@@ -35,7 +35,7 @@
     <UseVSHostingProcess>false</UseVSHostingProcess>
   </PropertyGroup>
   <PropertyGroup>
-    <ApplicationIcon>Magnifying_glass_icon_32x32.ico</ApplicationIcon>
+    <ApplicationIcon>CloneFinderIcons.ico</ApplicationIcon>
   </PropertyGroup>
   <PropertyGroup>
     <StartupObject>
@@ -119,10 +119,10 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Properties\DataSources\" />
+    <Folder Include="Resources\" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Magnifying_glass_icon_32x32.ico" />
-    <Content Include="Resources\Magnifying_glass_icon.ico" />
+    <Content Include="CloneFinderIcons.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

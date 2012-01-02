@@ -1,0 +1,4 @@
+ "C:\Program Files (x86)\Windows Installer XML v3.5\bin\candle.exe" "C:\Code\CloneFinder\Installer\CloneFinder.wxs" "-ext" "C:\Program Files (x86)\Windows Installer XML v3.5\bin\WixUIExtension.dll" "-ext" "C:\Program Files (x86)\Windows Installer XML v3.5\bin\WixUtilExtension.dll" "-out" "C:\Code\CloneFinder\Installer\CloneFinder.wixobj" 
+ "C:\Program Files (x86)\Windows Installer XML v3.5\bin\light.exe" "-out" "C:\Code\CloneFinder\Installer\CloneFinder.msi" "C:\Code\CloneFinder\Installer\CloneFinder.wixobj" "-ext" "C:\Program Files (x86)\Windows Installer XML v3.5\bin\WixUIExtension.dll" "-ext" "C:\Program Files (x86)\Windows Installer XML v3.5\bin\WixUtilExtension.dll" "-cultures:en-US" "-b" "C:\Program Files (x86)\Jgaa's Internet\War Setup\Licenses" "-b" "\." 
+ pause
+ 

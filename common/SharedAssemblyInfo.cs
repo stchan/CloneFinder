@@ -8,7 +8,7 @@ using System.Security.Permissions;
 // associated with an assembly.
 [assembly: AssemblyCompany("Black Telescope Workshop")]
 [assembly: AssemblyProduct("CloneFinder")]
-[assembly: AssemblyCopyright("Copyright © Sherman Chan 2010 - 2011")]
+[assembly: AssemblyCopyright("Copyright © Sherman Chan 2010 - 2012")]
 [assembly: AssemblyTrademark("")]
 
 // Make it easy to distinguish Debug and Release builds;

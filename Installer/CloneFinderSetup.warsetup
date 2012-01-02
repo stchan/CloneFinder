@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<WarSetup-Project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" projectRunAfterInstall="true" mainTargetApp="ID_8da3d7ad_c967_48a7_b8ee_2d492ae8ccec" nextUniqueId="1492" projectName="CloneFinder" projectUuid="f95c58fc-206f-45f1-bb7e-45752388cca7" projectUpgradeUuid="82eb3829-537a-4b72-83e8-4760e55685f5" projectVersion="1.0.1" projectOrganization="Black Telescope Workshop" projectFromWindowsVersion="Windows XP SP 2" projectMustBeAdministratorToInstall="false" project64BitTarget="false" projectTargetDirectory="C:\Code\CloneFinder\Installer" projectTargetName="CloneFinder" projectType="0" projectUserInterface="WixUI_InstallDir">
+<WarSetup-Project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" projectRunAfterInstall="true" mainTargetApp="ID_8da3d7ad_c967_48a7_b8ee_2d492ae8ccec" nextUniqueId="1494" projectName="CloneFinder" projectUuid="f95c58fc-206f-45f1-bb7e-45752388cca7" projectUpgradeUuid="82eb3829-537a-4b72-83e8-4760e55685f5" projectVersion="1.0.1" projectOrganization="Black Telescope Workshop" projectFromWindowsVersion="Windows XP SP 2" projectMustBeAdministratorToInstall="false" project64BitTarget="false" projectTargetDirectory="C:\Code\CloneFinder\Installer" projectTargetName="CloneFinder" projectType="0" projectUserInterface="WixUI_InstallDir">
   <LicencePaths>
     <string>C:\Program Files (x86)\Jgaa's Internet\War Setup\Licenses</string>
     <string>\.</string>
@@ -7,12 +7,6 @@
   <Virgin>false</Virgin>
   <projectFeatures featureId="ID810DF2CD953F0BFD2BAA50A1996590A2" featureName="CloneFinder Installer" featureDescription="CloneFinder MSI package" configurableDirectory="APPLICATIONFOLDER" configurableDirectoryDefaultPath="[ProjectName]" enableInDefaultInstall="true" enableInMinimalInstall="true" excludeFromBuild="false">
     <childFeatures featureId="PROGRAM" featureName="Program" featureDescription="The Main Executable" configurableDirectory="" configurableDirectoryDefaultPath="" enableInDefaultInstall="true" enableInMinimalInstall="true" excludeFromBuild="false">
-      <components componentId="ID1001" componentGuid="07e07793-433d-4350-b530-387dff102112">
-        <componentFiles fileId="ID_e13b2dd5_5a40_4c17_8421_697d4e212ab8" srcName="CloneFinder.dll" srcDirectory="C:\Code\CloneFinder\CloneFinderFrontEnd\bin\Release" dstName="CloneFinder.dll" dstPath="" isTrueTypeFont="false" isComModule="false" typelibGuid="" menuName="CloneFinder" shortcutInProgramFilesMenu="false" shortcutOnDesktop="false" shortcutInQuickLaunch="false" shortcutInStartupFolder="false" shortcutWorkingDirectory="" shortcutCommandArguments="" shortcutDescription="">
-          <service StartWhenInstalled="true" Remove="both" id="ID1000" isService="false" userAccount="" userPassword="" cmdLineArguments="" errorControl="normal" interactive="false" loadOrderGroup="" serviceName="" startMode="auto" vital="true" />
-        </componentFiles>
-        <addToCreateFolder>false</addToCreateFolder>
-      </components>
       <components componentId="ID1003" componentGuid="6ebcd4f6-5105-49d1-bdb8-20c33b2cf9e6">
         <componentFiles fileId="ID_8da3d7ad_c967_48a7_b8ee_2d492ae8ccec" srcName="CloneFinderFrontEnd.exe" srcDirectory="C:\Code\CloneFinder\CloneFinderFrontEnd\bin\Release" dstName="CloneFinderFrontEnd.exe" dstPath="" isTrueTypeFont="false" isComModule="false" typelibGuid="" menuName="CloneFinder" shortcutInProgramFilesMenu="true" shortcutOnDesktop="true" shortcutInQuickLaunch="false" shortcutInStartupFolder="false" shortcutWorkingDirectory="[APPLICATIONFOLDER]" shortcutCommandArguments="" shortcutDescription="">
           <service StartWhenInstalled="true" Remove="both" id="ID1002" isService="false" userAccount="" userPassword="" cmdLineArguments="" errorControl="normal" interactive="false" loadOrderGroup="" serviceName="" startMode="auto" vital="true" />
@@ -28,6 +22,12 @@
       <components componentId="ID1007" componentGuid="23eb1bb5-6b34-4627-b8fe-f4be3c47562b">
         <componentFiles fileId="ID_f107f59c_3e88_4303_84e0_2e78a5d2d8f8" srcName="System.Data.SQLite.dll" srcDirectory="C:\Code\CloneFinder\lib" dstName="System.Data.SQLite.dll" dstPath="" isTrueTypeFont="false" isComModule="false" typelibGuid="" menuName="System.Data.SQLite" shortcutInProgramFilesMenu="false" shortcutOnDesktop="false" shortcutInQuickLaunch="false" shortcutInStartupFolder="false" shortcutWorkingDirectory="" shortcutCommandArguments="" shortcutDescription="">
           <service StartWhenInstalled="true" Remove="both" id="ID1006" isService="false" userAccount="" userPassword="" cmdLineArguments="" errorControl="normal" interactive="false" loadOrderGroup="" serviceName="" startMode="auto" vital="true" />
+        </componentFiles>
+        <addToCreateFolder>false</addToCreateFolder>
+      </components>
+      <components componentId="ID1493" componentGuid="e118bfc7-fbdf-49c1-9edf-be3a5c0d867a">
+        <componentFiles fileId="ID_ca975014_3d7d_4dda_a956_98fe8ef42b8e" srcName="CloneFinderCore.dll" srcDirectory="..\CloneFinderCore\bin\Release" dstName="CloneFinderCore.dll" dstPath="" isTrueTypeFont="false" isComModule="false" typelibGuid="" menuName="CloneFinderCore" shortcutInProgramFilesMenu="false" shortcutOnDesktop="false" shortcutInQuickLaunch="false" shortcutInStartupFolder="false" shortcutWorkingDirectory="" shortcutCommandArguments="" shortcutDescription="">
+          <service StartWhenInstalled="true" Remove="both" id="ID1492" isService="false" userAccount="" userPassword="" cmdLineArguments="" errorControl="normal" interactive="false" loadOrderGroup="" serviceName="" startMode="auto" vital="true" />
         </componentFiles>
         <addToCreateFolder>false</addToCreateFolder>
       </components>

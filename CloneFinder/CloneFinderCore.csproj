@@ -8,8 +8,8 @@
     <ProjectGuid>{7E660F22-41CE-4CB4-B45D-E773B6557279}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>CloneFinder</RootNamespace>
-    <AssemblyName>CloneFinder</AssemblyName>
+    <RootNamespace>CloneFinderCore</RootNamespace>
+    <AssemblyName>CloneFinderCore</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>

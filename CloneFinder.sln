@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 11.00
 # Visual C# Express 2010
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CloneFinderTests", "CloneFinderTests\CloneFinderTests.csproj", "{0B66D652-BAAA-4E52-B567-64BD99FD0ADE}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CloneFinder", "CloneFinder\CloneFinder.csproj", "{7E660F22-41CE-4CB4-B45D-E773B6557279}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CloneFinderCore", "CloneFinder\CloneFinderCore.csproj", "{7E660F22-41CE-4CB4-B45D-E773B6557279}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CloneFinderFrontEnd", "CloneFinderFrontEnd\CloneFinderFrontEnd.csproj", "{38F8C4E3-CBF4-4870-80DC-DA119F6B3E62}"
 EndProject

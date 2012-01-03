@@ -12,6 +12,7 @@ namespace CloneFinderCore
         Error
     }
 
+
     public class FileProcessorEventArgs : EventArgs
     {
         #region Public properties

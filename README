@@ -16,3 +16,5 @@ TO DO
 Redo the GUI with WPF.
 A command line interface.
 Write some quick documentation for the class library.
+Update System.Data.SQLite to a version that is 4.0 Framework native.
+

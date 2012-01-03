@@ -52,8 +52,10 @@
     <Compile Include="..\common\SharedAssemblyInfo.cs">
       <Link>SharedAssemblyInfo.cs</Link>
     </Compile>
+    <Compile Include="Options.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RequestProcessor.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="CloneFinderIcons.ico" />
@@ -63,6 +65,9 @@
       <Project>{7E660F22-41CE-4CB4-B45D-E773B6557279}</Project>
       <Name>CloneFinderCore</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

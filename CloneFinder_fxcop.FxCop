@@ -22,11 +22,11 @@
  </ProjectOptions>
  <Targets>
   <AssemblyReferenceDirectories>
+   <Directory>$(ProjectDir)/CloneFinderGUI/bin/Debug/</Directory>
    <Directory>$(ProjectDir)/lib/</Directory>
   </AssemblyReferenceDirectories>
   <Target Name="$(ProjectDir)/CloneFinder/bin/Debug/CloneFinder.dll" Analyze="True" AnalyzeAllChildren="True" />
   <Target Name="$(ProjectDir)/CloneFinderFrontEnd/bin/Debug/CloneFinderFrontEnd.exe" Analyze="True" AnalyzeAllChildren="True" />
-  <Target Name="$(ProjectDir)/CloneFinderGUI/bin/Debug/CloneFinderGUI.exe" Analyze="False" AnalyzeAllChildren="False" />
  </Targets>
  <Rules>
   <RuleFiles>
@@ -53,14 +53,6 @@
        <Message TypeName="AssembliesShouldHaveValidStrongNames" Category="Microsoft.Design" CheckId="CA2210" Created="2011-08-29 02:53:13Z">
         <Issue Name="NoStrongName">
          <Item>'CloneFinder.dll'</Item>
-        </Issue>
-       </Message>
-       <Message TypeName="AttributeStringLiteralsShouldParseCorrectly" Category="Microsoft.Usage" CheckId="CA2243" Created="2011-05-04 01:32:27Z">
-        <Issue>
-         <Item>'AssemblyInformationalVersionAttribute'</Item>
-         <Item>'informationalVersion'</Item>
-         <Item>1.0 Beta</Item>
-         <Item>'Version'</Item>
         </Issue>
        </Message>
       </Messages>
@@ -148,14 +140,6 @@
        <Message TypeName="AssembliesShouldHaveValidStrongNames" Category="Microsoft.Design" CheckId="CA2210" Created="2011-08-29 02:53:13Z">
         <Issue Name="NoStrongName">
          <Item>'CloneFinderFrontEnd.exe'</Item>
-        </Issue>
-       </Message>
-       <Message TypeName="AttributeStringLiteralsShouldParseCorrectly" Category="Microsoft.Usage" CheckId="CA2243" Created="2011-08-29 02:53:13Z">
-        <Issue>
-         <Item>'AssemblyInformationalVersionAttribute'</Item>
-         <Item>'informationalVersion'</Item>
-         <Item>1.0 Beta</Item>
-         <Item>'Version'</Item>
         </Issue>
        </Message>
        <Message TypeName="MarkAssembliesWithClsCompliant" Category="Microsoft.Design" CheckId="CA1014" Created="2011-08-29 02:53:13Z">
@@ -284,16 +268,6 @@
              </Message>
             </Messages>
            </Member>
-           <Member Name="#InitializeComponent()">
-            <Messages>
-             <Message TypeName="DoNotUseTimersThatPreventPowerStateChanges" Category="Microsoft.Mobility" CheckId="CA1601" Created="2011-08-29 02:53:13Z">
-              <Issue>
-               <Item>'Timer.Interval.set(int)'</Item>
-               <Item>'MainWindow.InitializeComponent()'</Item>
-              </Issue>
-             </Message>
-            </Messages>
-           </Member>
            <Member Name="#InitializeDataGridView(System.Windows.Forms.DataGridView)">
             <Messages>
              <Message TypeName="MarkMembersAsStatic" Category="Microsoft.Performance" CheckId="CA1822" Created="2011-08-29 02:53:13Z" FixCategory="NonBreaking">
@@ -363,12 +337,6 @@
   <Rules>
    <Rule TypeName="AssembliesShouldHaveValidStrongNames" Category="Microsoft.Design" CheckId="CA2210">
     <Resolution Name="NoStrongName">Sign {0} with a strong name key.</Resolution>
-   </Rule>
-   <Rule TypeName="AttributeStringLiteralsShouldParseCorrectly" Category="Microsoft.Usage" CheckId="CA2243">
-    <Resolution Name="Default">In the constructor of {0}, change the value of argument {1}, which is currently "{2}", to something that can be correctly parsed as {3}.</Resolution>
-   </Rule>
-   <Rule TypeName="DoNotUseTimersThatPreventPowerStateChanges" Category="Microsoft.Mobility" CheckId="CA1601">
-    <Resolution Name="Default">Modify the call to {0} in method {1} to set the timer interval to a value that's greater than or equal to one second.</Resolution>
    </Rule>
    <Rule TypeName="IdentifiersShouldNotContainUnderscores" Category="Microsoft.Naming" CheckId="CA1707">
     <Resolution Name="Member">Remove the underscores from member name {0}.</Resolution>

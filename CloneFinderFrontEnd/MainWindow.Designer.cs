@@ -282,7 +282,7 @@
             // 
             // processedFileInfoBindingSource
             // 
-            this.processedFileInfoBindingSource.DataSource = typeof(CloneFinder.ProcessedFileInfo);
+            this.processedFileInfoBindingSource.DataSource = typeof(CloneFinderCore.ProcessedFileInfo);
             // 
             // MainWindow
             // 

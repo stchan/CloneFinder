@@ -5,7 +5,7 @@ using System.Text;
 
 using NUnit.Framework;
 
-namespace CloneFinderTests
+namespace CloneFinderCoreTests
 {
     [TestFixture()]
     public class Tests
@@ -28,7 +28,7 @@ namespace CloneFinderTests
             bool nullParameterTest = false;
             try
             {
-                CloneFinder.DirectoryWalker nullParameter = new CloneFinder.DirectoryWalker(null);
+                CloneFinderCore.DirectoryWalker nullParameter = new CloneFinderCore.DirectoryWalker(null);
             }
             catch (ArgumentNullException)
             {
@@ -39,7 +39,7 @@ namespace CloneFinderTests
             bool emptyStringParameterTest = false;
             try
             {
-                CloneFinder.DirectoryWalker emptyStringParameter = new CloneFinder.DirectoryWalker(String.Empty);
+                CloneFinderCore.DirectoryWalker emptyStringParameter = new CloneFinderCore.DirectoryWalker(String.Empty);
             }
             catch (ArgumentNullException)
             {
@@ -50,7 +50,7 @@ namespace CloneFinderTests
             bool whiteSpaceParameterTest = false;
             try
             {
-                CloneFinder.DirectoryWalker whiteSpaceParameter = new CloneFinder.DirectoryWalker("    ");
+                CloneFinderCore.DirectoryWalker whiteSpaceParameter = new CloneFinderCore.DirectoryWalker("    ");
             }
             catch (ArgumentNullException)
             {
@@ -63,7 +63,7 @@ namespace CloneFinderTests
         [Test]
         public void Test1()
         {
-            CloneFinder.FileProcessorLengthFirst testLengthFirst = new CloneFinder.FileProcessorLengthFirst();
+            CloneFinderCore.FileProcessorLengthFirst testLengthFirst = new CloneFinderCore.FileProcessorLengthFirst();
             testLengthFirst.Initialize();
             Assert.IsTrue(File.Exists(testLengthFirst.Test_DatabaseFile));
             testLengthFirst.Dispose();
@@ -72,20 +72,20 @@ namespace CloneFinderTests
         [Test]
         public void InitialDirectoryWalk()
         {
-            CloneFinder.DirectoryWalker testDirectoryWalk = new CloneFinder.DirectoryWalker(@"C:\Users\sherman");
-            testDirectoryWalk.DirectoryWalkStarted += new EventHandler<CloneFinder.DirectoryWalkEventArgs>(DirectoryWalk_DirectoryWalkStarted);
-            testDirectoryWalk.DirectoryWalkComplete += new EventHandler<CloneFinder.DirectoryWalkEventArgs>(DirectoryWalk_DirectoryWalkComplete);
+            CloneFinderCore.DirectoryWalker testDirectoryWalk = new CloneFinderCore.DirectoryWalker(@"C:\Users\sherman");
+            testDirectoryWalk.DirectoryWalkStarted += new EventHandler<CloneFinderCore.DirectoryWalkEventArgs>(DirectoryWalk_DirectoryWalkStarted);
+            testDirectoryWalk.DirectoryWalkComplete += new EventHandler<CloneFinderCore.DirectoryWalkEventArgs>(DirectoryWalk_DirectoryWalkComplete);
             testDirectoryWalk.WalkDirectory();
         }
 
         int directoryWalkCompletedEventCount = 0;
-        private void DirectoryWalk_DirectoryWalkComplete(object sender, CloneFinder.DirectoryWalkEventArgs e)
+        private void DirectoryWalk_DirectoryWalkComplete(object sender, CloneFinderCore.DirectoryWalkEventArgs e)
         {
             this.directoryWalkCompletedEventCount++;
         }
 
         int directoryWalkStartedEventCount = 0;
-        private void DirectoryWalk_DirectoryWalkStarted(object sender, CloneFinder.DirectoryWalkEventArgs e)
+        private void DirectoryWalk_DirectoryWalkStarted(object sender, CloneFinderCore.DirectoryWalkEventArgs e)
         {
             this.directoryWalkStartedEventCount++;
         }

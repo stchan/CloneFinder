@@ -6,7 +6,7 @@ using System.IO;
 using System.Text;
 using System.Security.Cryptography;
 
-namespace CloneFinder
+namespace CloneFinderCore
 {
     /// <summary>
     /// This class contains methods to walk a directory,

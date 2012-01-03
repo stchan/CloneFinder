@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace CloneFinder
+namespace CloneFinderCore
 {
     public enum FileProcessorOperationResult
     {
@@ -11,6 +11,7 @@ namespace CloneFinder
         Failure,
         Error
     }
+
 
     public class FileProcessorEventArgs : EventArgs
     {

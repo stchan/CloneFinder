@@ -4,7 +4,7 @@ using System.Data.SQLite;
 using System.IO;
 using System.Security.Cryptography;
 
-namespace CloneFinder
+namespace CloneFinderCore
 {
     public abstract class FileProcessorBase : IFileProcessor
     {

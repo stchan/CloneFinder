@@ -41,6 +41,10 @@ namespace CloneFinder
             }
             catch
             {
+                // Something totally unexpected happened -
+                // catch the exception so the whole process
+                // doesn't come crashing down if this is
+                // being run in a batch file
                 Console.Error.WriteLine(messageUnexpectedInternalError);
                 Environment.ExitCode = -2;
             }
@@ -77,6 +81,9 @@ namespace CloneFinder
             }
             if (!validatedOK)
             {
+                // Tell the user there was a problem
+                // and we're not going to find
+                // their precious duplicates
                 Console.Error.WriteLine(errorMessage.ToString());
                 Environment.ExitCode = 1;
             }

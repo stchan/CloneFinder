@@ -16,15 +16,27 @@ namespace CloneFinder
 
         #endregion
 
+        const String reportMessageComputingHashes = "Computing hashes for potential duplicates...";
         const String reportMessageHashCode = "Files with Hash {0}:";
         const String reportMessageNoDuplicates = "No duplicates found.";
+
+        const String reportMessageCSVOutput = "\"{0}\", \"{1}\"";
 
         public void FindDuplicates(Options commandLineOptions)
         {
             CloneFinderCore.DirectoryWalker duplicateWalker = new CloneFinderCore.DirectoryWalker(commandLineOptions.Items[0]);
-            if (commandLineOptions.progressIndicator) duplicateWalker.FileProcessed += new EventHandler<CloneFinderCore.DirectoryWalkEventArgs>(duplicateWalker_FileProcessed);
+            if (commandLineOptions.progressIndicator)
+            {
+                duplicateWalker.FileProcessed += new EventHandler<CloneFinderCore.DirectoryWalkEventArgs>(duplicateWalker_FileProcessed);
+                duplicateWalker.DirectoryWalkComplete += new EventHandler<CloneFinderCore.DirectoryWalkEventArgs>(duplicateWalker_DirectoryWalkComplete);
+            }
             Collection<CloneFinderCore.ProcessedFileInfo> duplicateFiles = duplicateWalker.WalkDirectory();
-            WriteResults(duplicateFiles);
+            WriteResults(duplicateFiles, commandLineOptions.csvOutput);
+        }
+
+        void duplicateWalker_DirectoryWalkComplete(object sender, CloneFinderCore.DirectoryWalkEventArgs e)
+        {
+            Console.WriteLine(reportMessageComputingHashes);
         }
 
         private void duplicateWalker_FileProcessed(object sender, CloneFinderCore.DirectoryWalkEventArgs e)
@@ -32,20 +44,31 @@ namespace CloneFinder
             Console.WriteLine("Processed: " + e.Name);
         }
 
-        private void WriteResults(Collection<CloneFinderCore.ProcessedFileInfo> duplicateFiles)
+        private void WriteResults(Collection<CloneFinderCore.ProcessedFileInfo> duplicateFiles, bool writeAsCSV)
         {
             if (duplicateFiles.Count > 0)
             {
                 String lastHash = String.Empty;
                 for (int loop = 0; loop < duplicateFiles.Count; loop++)
                 {
-                    if (lastHash != duplicateFiles[loop].FileHash)
+                    if (!writeAsCSV)
                     {
-                        lastHash = duplicateFiles[loop].FileHash;
-                        Console.WriteLine();
-                        Console.WriteLine(String.Format(reportMessageHashCode, lastHash));
+                        // Standard output format
+                        if (lastHash != duplicateFiles[loop].FileHash)
+                        {
+                            lastHash = duplicateFiles[loop].FileHash;
+                            Console.WriteLine();
+                            Console.WriteLine(String.Format(reportMessageHashCode, lastHash));
+                        }
+                        Console.WriteLine(duplicateFiles[loop].FilePath + duplicateFiles[loop].Name);
                     }
-                    Console.WriteLine(duplicateFiles[loop].FilePath + duplicateFiles[loop].Name);
+                    else
+                    {
+                        // Comma separated output requested
+                        Console.WriteLine(String.Format(reportMessageCSVOutput,
+                                                        duplicateFiles[loop].FilePath + duplicateFiles[loop].Name,
+                                                        duplicateFiles[loop].FileHash));
+                    }
                 }
             }
             else

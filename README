@@ -1,10 +1,11 @@
 This is a duplicate file finder for Windows. A GUI front end (CloneFinderFrontEnd)
-is provided for end users, and a class library (CloneFinder) for developers
-who need an open source licensed component.
+and shell interface (CloneFinder.exe) is provided for end users, 
+and a class library (CloneFinder.dll) for developers
+who need an open source licensed (MIT X11 license) component.
 
 Version 4.0 of the .Net framework is required.
 
-Visual C# 2010 Express (with SP1), NUnit 2.5, and Warsetup 3.13 were used
+Visual C# 2010 Express (with SP1), NUnit 2.5, Warsetup 3.13, and Wix 3.5 were used
 to build, and test the project.
 
 CloneFinder uses/includes the following third party components:
@@ -18,3 +19,7 @@ A command line interface.
 Write some quick documentation for the class library.
 Update System.Data.SQLite to a version that is 4.0 Framework native.
 
+ChangeLog
+1.1.0 - Added command line interface
+1.0.2 - Fixes for installer, and icon changes
+1.0.1 - First  public release

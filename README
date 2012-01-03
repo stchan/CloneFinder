@@ -11,6 +11,7 @@ to build, and test the project.
 CloneFinder uses/includes the following third party components:
 - Code from MSDN for a breadth-first directory traversal.
 - System.Data.SQLite library (v1.0.66 in particular)
+- CommandLine Parser library (v1.8 stable) - http://commandline.codeplex.com/
 - Free or CC licensed artwork. (Icons (C) 2008 GoSquared Ltd.)
 
 TO DO
@@ -21,4 +22,5 @@ Update System.Data.SQLite to a version that is 4.0 Framework native.
 ChangeLog
 1.1.0 - Added command line interface
 1.0.2 - Fixes for installer, and icon changes
-1.0.1 - First  public release
+1.0.1 - First usable public release
+1.0.0 - Initial commit to github

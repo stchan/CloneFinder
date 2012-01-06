@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<WarSetup-Project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" projectRunAfterInstall="true" mainTargetApp="ID_e931727c_a1a8_4cca_a5f0_da86250ca755" nextUniqueId="1504" projectName="CloneFinder" projectUuid="f95c58fc-206f-45f1-bb7e-45752388cca7" projectUpgradeUuid="82eb3829-537a-4b72-83e8-4760e55685f5" projectVersion="1.0.2" projectOrganization="Black Telescope Workshop" projectFromWindowsVersion="Windows XP SP 2" projectMustBeAdministratorToInstall="false" project64BitTarget="false" projectTargetDirectory="C:\Code\CloneFinder\Installer" projectTargetName="CloneFinder" projectType="0" projectUserInterface="WixUI_InstallDir">
+<WarSetup-Project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" projectRunAfterInstall="true" mainTargetApp="ID_e931727c_a1a8_4cca_a5f0_da86250ca755" nextUniqueId="1507" projectName="CloneFinder" projectUuid="f95c58fc-206f-45f1-bb7e-45752388cca7" projectUpgradeUuid="82eb3829-537a-4b72-83e8-4760e55685f5" projectVersion="1.0.2" projectOrganization="Black Telescope Workshop" projectFromWindowsVersion="Windows XP SP 2" projectMustBeAdministratorToInstall="false" project64BitTarget="false" projectTargetDirectory="C:\Code\CloneFinder\Installer" projectTargetName="CloneFinder" projectType="0" projectUserInterface="WixUI_InstallDir">
   <LicencePaths>
     <string>C:\Program Files (x86)\Jgaa's Internet\War Setup\Licenses</string>
     <string>\.</string>
@@ -43,6 +43,12 @@
         </componentFiles>
         <addToCreateFolder>false</addToCreateFolder>
       </components>
+      <components componentId="ID1506" componentGuid="3a7b7944-fe32-4908-aeb3-4227ad80c31f">
+        <componentFiles fileId="ID_f657be80_8c5c_48b4_bceb_fb18666fb9bf" srcName="CloneFinderShell.bat" srcDirectory="..\CloneFinder\bin\Release" dstName="CloneFinderShell.bat" dstPath="" isTrueTypeFont="false" isComModule="false" typelibGuid="" menuName="CloneFinder Shell" shortcutInProgramFilesMenu="true" shortcutOnDesktop="false" shortcutInQuickLaunch="false" shortcutInStartupFolder="false" shortcutWorkingDirectory="[APPLICATIONFOLDER]" shortcutCommandArguments="" shortcutDescription="">
+          <service StartWhenInstalled="true" Remove="both" id="ID1505" isService="false" userAccount="" userPassword="" cmdLineArguments="" errorControl="normal" interactive="false" loadOrderGroup="" serviceName="" startMode="auto" vital="true" />
+        </componentFiles>
+        <addToCreateFolder>false</addToCreateFolder>
+      </components>
       <defaultInstallMode>3</defaultInstallMode>
     </childFeatures>
     <defaultInstallMode>3</defaultInstallMode>
@@ -52,7 +58,7 @@
     <System>true</System>
     <Name>X11 License</Name>
   </License>
-  <projectProperties LicencePath="\." TopBanner="" BigBanner="" ExclamationIcon="" InfoIcon="" NewIcon="" UpIcon="" VS2003Integration="VS2003_INTEGRATION" VS2005Integration="VS2005_INTEGRATION" UseRelativePaths="true" LaunchAppText="" UseWixUI_ErrorProgressText="true" UseWixUI="true" CreateUninstallShortcut="true" Codepage="1252" ProductLanguage="1033" AlwaysMajorUpgrade="true" SupressValidation="false" Compress="true" BuildTarget="true" PublisherUrl="" SupportContact="" SupportUrl="" SupportPhone="" ReadMeFile="" UpdateUrl="" Comments="" Icon="" EmbedCab="true" MaxCabSize="0" CabCompressionLevel="mszip" InstallerVersion="300">
+  <projectProperties LicencePath="\." TopBanner="" BigBanner="" ExclamationIcon="" InfoIcon="" NewIcon="" UpIcon="" VS2003Integration="VS2003_INTEGRATION" VS2005Integration="VS2005_INTEGRATION" UseRelativePaths="true" LaunchAppText="" UseWixUI_ErrorProgressText="true" UseWixUI="true" CreateUninstallShortcut="true" Codepage="1252" ProductLanguage="1033" AlwaysMajorUpgrade="true" SupressValidation="false" Compress="true" BuildTarget="true" PublisherUrl="" SupportContact="" SupportUrl="" SupportPhone="" ReadMeFile="" UpdateUrl="" Comments="" Icon="[APPLICATIONFOLDER]\CloneFinderCore.dll" EmbedCab="true" MaxCabSize="0" CabCompressionLevel="mszip" InstallerVersion="300">
     <UiCultures Name="en-US" Enabled="true" />
     <UiCultures Name="de-de" Enabled="false" />
     <UiCultures Name="es-es" Enabled="false" />

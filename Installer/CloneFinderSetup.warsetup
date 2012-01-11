@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<WarSetup-Project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" projectRunAfterInstall="true" mainTargetApp="ID_e931727c_a1a8_4cca_a5f0_da86250ca755" nextUniqueId="1507" projectName="CloneFinder" projectUuid="f95c58fc-206f-45f1-bb7e-45752388cca7" projectUpgradeUuid="82eb3829-537a-4b72-83e8-4760e55685f5" projectVersion="1.0.2" projectOrganization="Black Telescope Workshop" projectFromWindowsVersion="Windows XP SP 2" projectMustBeAdministratorToInstall="false" project64BitTarget="false" projectTargetDirectory="C:\Code\CloneFinder\Installer" projectTargetName="CloneFinder" projectType="0" projectUserInterface="WixUI_InstallDir">
+<WarSetup-Project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" projectRunAfterInstall="true" mainTargetApp="ID_e931727c_a1a8_4cca_a5f0_da86250ca755" nextUniqueId="1509" projectName="CloneFinder" projectUuid="f95c58fc-206f-45f1-bb7e-45752388cca7" projectUpgradeUuid="82eb3829-537a-4b72-83e8-4760e55685f5" projectVersion="1.0.2" projectOrganization="Black Telescope Workshop" projectFromWindowsVersion="Windows XP SP 2" projectMustBeAdministratorToInstall="false" project64BitTarget="false" projectTargetDirectory="C:\Code\CloneFinder\Installer" projectTargetName="CloneFinder" projectType="0" projectUserInterface="WixUI_InstallDir">
   <LicencePaths>
     <string>C:\Program Files (x86)\Jgaa's Internet\War Setup\Licenses</string>
     <string>\.</string>
@@ -46,6 +46,12 @@
       <components componentId="ID1506" componentGuid="3a7b7944-fe32-4908-aeb3-4227ad80c31f">
         <componentFiles fileId="ID_f657be80_8c5c_48b4_bceb_fb18666fb9bf" srcName="CloneFinderShell.bat" srcDirectory="..\CloneFinder\bin\Release" dstName="CloneFinderShell.bat" dstPath="" isTrueTypeFont="false" isComModule="false" typelibGuid="" menuName="CloneFinder Shell" shortcutInProgramFilesMenu="true" shortcutOnDesktop="false" shortcutInQuickLaunch="false" shortcutInStartupFolder="false" shortcutWorkingDirectory="[APPLICATIONFOLDER]" shortcutCommandArguments="" shortcutDescription="">
           <service StartWhenInstalled="true" Remove="both" id="ID1505" isService="false" userAccount="" userPassword="" cmdLineArguments="" errorControl="normal" interactive="false" loadOrderGroup="" serviceName="" startMode="auto" vital="true" />
+        </componentFiles>
+        <addToCreateFolder>false</addToCreateFolder>
+      </components>
+      <components componentId="ID1508" componentGuid="226fe355-bde9-4686-99af-6ff428467d56">
+        <componentFiles fileId="ID_108f8445_2730_4568_ad37_c5281ea5e1fc" srcName="CommandLine.dll" srcDirectory="..\lib" dstName="CommandLine.dll" dstPath="" isTrueTypeFont="false" isComModule="false" typelibGuid="" menuName="CommandLine" shortcutInProgramFilesMenu="false" shortcutOnDesktop="false" shortcutInQuickLaunch="false" shortcutInStartupFolder="false" shortcutWorkingDirectory="" shortcutCommandArguments="" shortcutDescription="">
+          <service StartWhenInstalled="true" Remove="both" id="ID1507" isService="false" userAccount="" userPassword="" cmdLineArguments="" errorControl="normal" interactive="false" loadOrderGroup="" serviceName="" startMode="auto" vital="true" />
         </componentFiles>
         <addToCreateFolder>false</addToCreateFolder>
       </components>

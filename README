@@ -14,6 +14,30 @@ CloneFinder uses/includes the following third party components:
 - CommandLine Parser library (v1.8 stable) - http://commandline.codeplex.com/
 - Free or CC licensed artwork. (Icons (C) 2008 GoSquared Ltd.)
 
+-----
+
+Command line Usage:
+
+   CloneFinder [-c] [-p] path
+
+Options:
+   -c, --csv        Display results as comma separated values (CSV).
+   -p, --progress   Show progress indicator.
+
+Example:
+
+   CloneFinder -c c:\temp
+
+Searches for duplicates in c:\temp, and outputs results in CSV format.
+
+-----
+
+GUI Notes:
+If you resize the window or grid columns, the GUI app will remember the new sizes.
+Select "Reset Default Sizes" from the "Tools" menu to reset window and column sizes back to defaults.
+
+
+
 TO DO
 Redo the GUI with WPF.
 Write some quick documentation for the class library.

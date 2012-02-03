@@ -18,3 +18,6 @@
 /Installer/CloneFinderSetup.wxs
 /Installer/CloneFinderSetup.wixobj
 /Installer/CloneFinderSetup.wixpdb
+/CloneFinderFrontEnd/CloneFinderFrontEnd.csproj.user
+/Installer/CloneFinder.wixpdb
+/Installer/CloneFinder.wixobj

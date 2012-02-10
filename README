@@ -13,6 +13,9 @@ CloneFinder uses/includes the following third party components:
 - System.Data.SQLite library (v1.0.66 in particular)
 - CommandLine Parser library (v1.8 stable) - http://commandline.codeplex.com/
 - Free or CC licensed artwork. (Icons (C) 2008 GoSquared Ltd.)
+- Installer graphics from Open Clip Art (public domain) - 
+	http://openclipart.org/detail/139579/amateur-astronomer-by-sunking2
+        http://openclipart.org/detail/28059/spyglass1-by-crimperman
 
 -----
 

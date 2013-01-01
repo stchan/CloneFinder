@@ -1,1 +1,1 @@
-@start cmd /k "set Path=%Path%;%CD%"
+@start cmd /k "set Path=%CD%;%Path%"

@@ -55,3 +55,4 @@ _ReSharper*/
 .vs/
 #Nuget packages folder
 packages/
+/Installer/CloneFinder.msi

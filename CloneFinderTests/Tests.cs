@@ -3,11 +3,11 @@ using System.Collections.Generic;
 using System.IO;
 using System.Text;
 
-using NUnit.Framework;
+
+using Xunit;
 
 namespace CloneFinderCoreTests
 {
-    [TestFixture()]
     public class Tests
     {
         #region Ctor
@@ -20,7 +20,7 @@ namespace CloneFinderCoreTests
 #if DEBUG
         #region DirectoryWalker tests
 
-        [Test]
+        [Fact]
         public void DirectoryWalker_DoesConstructorRejectNullArgument()
         {
             // Constructor should throw exception
@@ -34,7 +34,7 @@ namespace CloneFinderCoreTests
             {
                 nullParameterTest = true;
             }
-            Assert.IsTrue(nullParameterTest, "ArgumentNullException caught when constructor is passed null.");
+            Assert.True(nullParameterTest, "ArgumentNullException caught when constructor is passed null.");
 
             bool emptyStringParameterTest = false;
             try
@@ -45,7 +45,7 @@ namespace CloneFinderCoreTests
             {
                 emptyStringParameterTest = true;
             }
-            Assert.IsTrue(emptyStringParameterTest);
+            Assert.True(emptyStringParameterTest);
 
             bool whiteSpaceParameterTest = false;
             try
@@ -56,20 +56,20 @@ namespace CloneFinderCoreTests
             {
                 whiteSpaceParameterTest = true;
             }
-            Assert.IsTrue(whiteSpaceParameterTest);
+            Assert.True(whiteSpaceParameterTest);
 
         }
 
-        [Test]
+        [Fact]
         public void Test1()
         {
             CloneFinderCore.FileProcessorLengthFirst testLengthFirst = new CloneFinderCore.FileProcessorLengthFirst();
             testLengthFirst.Initialize();
-            Assert.IsTrue(File.Exists(testLengthFirst.Test_DatabaseFile));
+            Assert.True(File.Exists(testLengthFirst.Test_DatabaseFile));
             testLengthFirst.Dispose();
         }
 
-        [Test]
+        [Fact]
         public void InitialDirectoryWalk()
         {
             CloneFinderCore.DirectoryWalker testDirectoryWalk = new CloneFinderCore.DirectoryWalker(@"C:\Users\sherman");

@@ -12,6 +12,9 @@
 		<MajorUpgrade DowngradeErrorMessage="A newer version of [ProductName] is already installed." />
 		<MediaTemplate EmbedCab="yes" />
 
+    <Icon Id="icon.ico" SourceFile="..\common\CloneFinderIcons.ico"/>
+    <Property Id="ARPPRODUCTICON" Value="icon.ico" />    
+    
     <!-- .Net 4.6.2 Prerequisite -->
     <PropertyRef Id="WIX_IS_NETFRAMEWORK_462_OR_LATER_INSTALLED"/>
     <Condition Message="This application requires .NET Framework 4.6.2. Please install the .NET Framework then run this installer again.">
@@ -51,6 +54,44 @@
 			<!-- <Component Id="ProductComponent"> -->
 				<!-- TODO: Insert files, registry keys, and other resources here. -->
 			<!-- </Component> -->
+      <Component Id="System.Data.SQLite.dll" Guid="{890500AD-CD22-4CCC-924D-7FEE11F63078}" Win64="yes">
+        <File Id="System.Data.SQLite.dll"
+              Source="$(var.CloneFinderFrontEnd.TargetDir)System.Data.SQLite.dll"
+              KeyPath="yes">
+        </File>
+      </Component>
+      <Component Id="CloneFinderCore.dll" Guid="*" Win64="yes">
+        <File Id="$(var.CloneFinderCore.TargetFileName)"
+              Source="$(var.CloneFinderCore.TargetPath)"
+              KeyPath="yes">
+        </File>
+      </Component>
+      <Component Id="CloneFinder.exe" Guid="*" Win64="yes">
+        <File Id="$(var.CloneFinder.TargetFileName)"
+              Source="$(var.CloneFinder.TargetPath)"
+              KeyPath="yes">
+        </File>
+      </Component>
+      <Component Id="CloneFinder.exe.config" Guid="*" >
+        <File Id="$(var.CloneFinder.TargetFileName).config"
+              Source="$(var.CloneFinder.TargetPath).config"
+              KeyPath="yes">
+        </File>
+      </Component>
+      <Component Id="CloneFinderFrontEnd.exe" Guid="*" Win64="yes">
+        <File Id="$(var.CloneFinderFrontEnd.TargetFileName)"
+              Source="$(var.CloneFinderFrontEnd.TargetPath)"
+              KeyPath="yes">
+        </File>
+      </Component>
+      <Component Id="CloneFinderFrontEnd.exe.config" Guid="*" >
+        <File Id="$(var.CloneFinderFrontEnd.TargetFileName).config"
+              Source="$(var.CloneFinderFrontEnd.TargetPath).config"
+              KeyPath="yes">
+        </File>
+      </Component>
+      
+      
 		</ComponentGroup>
 	</Fragment>
 </Wix>

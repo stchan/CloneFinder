@@ -1,20 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Wix xmlns="http://schemas.microsoft.com/wix/2006/wi" xmlns:netfx ="http://schemas.microsoft.com/wix/NetFxExtension">
-	<Product Id="{3EBCF124-F511-4E6C-AD49-5C387E6B4E1D}" Name="CloneFinder" Language="1033" 
-           Version="1.2.0.0" 
-           Manufacturer="Black Telescope Workshop" 
-           UpgradeCode="3d5cff97-2d29-4f94-b281-b3a3ceab1053">
-		<Package InstallerVersion="500" 
-             Compressed="yes" 
+  <!-- Change Product Id, and Version with every new release -->
+  <Product Id="{3EBCF124-F511-4E6C-AD49-5C387E6B4E1D}"
+             Name="CloneFinder" Language="1033"
+             Version="1.2.0.0"
+             Manufacturer="Black Telescope Workshop"
+             UpgradeCode="3d5cff97-2d29-4f94-b281-b3a3ceab1053">
+    <Package InstallerVersion="500"
+             Compressed="yes"
              InstallScope="perMachine"
              Platform="x64" />
 
-		<MajorUpgrade DowngradeErrorMessage="A newer version of [ProductName] is already installed." />
-		<MediaTemplate EmbedCab="yes" />
+    <MajorUpgrade DowngradeErrorMessage="A newer version of [ProductName] is already installed." />
+    <MediaTemplate EmbedCab="yes" />
 
-    <Icon Id="icon.ico" SourceFile="..\common\CloneFinderIcons.ico"/>
-    <Property Id="ARPPRODUCTICON" Value="icon.ico" />    
-    
+
+    <Property Id="ARPPRODUCTICON" Value="CloneFinderIcons.ico" />
+
     <!-- .Net 4.6.2 Prerequisite -->
     <PropertyRef Id="WIX_IS_NETFRAMEWORK_462_OR_LATER_INSTALLED"/>
     <Condition Message="This application requires .NET Framework 4.6.2. Please install the .NET Framework then run this installer again.">
@@ -33,30 +35,56 @@
     <UIRef Id="WixUI_InstallDir" />
 
 
-
     <Feature Id="ProductFeature" Title="CloneFinderInstaller" Level="1">
-			<ComponentGroupRef Id="ProductComponents" />
-		</Feature>
-	</Product>
+      <ComponentGroupRef Id="ProductComponents" />
+      <ComponentRef Id="ProgramMenuDir"/>
+    </Feature>
+  </Product>
 
-	<Fragment>
-		<Directory Id="TARGETDIR" Name="SourceDir">
+  <!-- Icon files -->
+  <Fragment>
+    <Icon Id="cmd.exe" SourceFile="$(env.ComSpec)"/>
+    <Icon Id="CloneFinderIcons.ico" SourceFile="..\common\CloneFinderIcons.ico"/>
+    <!-- we need a second entry for this icon file because the shortcuts won't show
+         the proper icon if the Icon element's Id doesn't end in exe.
+     -->
+    <Icon Id="CloneFinderFrontEnd.exe" SourceFile="..\common\CloneFinderIcons.ico"/>
+  </Fragment>
+
+  <Fragment>
+    <Directory Id="TARGETDIR" Name="SourceDir">
       <Directory Id="DesktopFolder" Name="Desktop"/>
       <Directory Id="ProgramFiles64Folder">
-				<Directory Id="INSTALLFOLDER" Name="CloneFinder" />
-			</Directory>
-		</Directory>
-	</Fragment>
+        <Directory Id="INSTALLFOLDER" Name="CloneFinder" />
+      </Directory>
+      <!-- Start menu and Desktop Shortcut directories -->
+      <Directory Id="ProgramMenuFolder" >
+        <Directory Id="ProgramMenuDir" Name="CloneFinder">
+          <Component Id="ProgramMenuDir" Guid="{B841C88B-647C-4EDF-A743-6FBFD080BF15}">
+            <RemoveFolder Id="ProgramMenuDir" On="uninstall" />
+            <RegistryValue Root="HKMU" Key="Software\[ProductName]" Type="string" Value="" KeyPath="yes" />
+          </Component>
+        </Directory>
+      </Directory>
+    </Directory>
+  </Fragment>
 
-	<Fragment>
-		<ComponentGroup Id="ProductComponents" Directory="INSTALLFOLDER">
-			<!-- TODO: Remove the comments around this Component element and the ComponentRef below in order to add resources to this installer. -->
-			<!-- <Component Id="ProductComponent"> -->
-				<!-- TODO: Insert files, registry keys, and other resources here. -->
-			<!-- </Component> -->
+
+  <Fragment>
+    <ComponentGroup Id="ProductComponents" Directory="INSTALLFOLDER">
+      <!-- TODO: Remove the comments around this Component element and the ComponentRef below in order to add resources to this installer. -->
+      <!-- <Component Id="ProductComponent"> -->
+      <!-- TODO: Insert files, registry keys, and other resources here. -->
+      <!-- </Component> -->
       <Component Id="System.Data.SQLite.dll" Guid="{890500AD-CD22-4CCC-924D-7FEE11F63078}" Win64="yes">
         <File Id="System.Data.SQLite.dll"
               Source="$(var.CloneFinderFrontEnd.TargetDir)System.Data.SQLite.dll"
+              KeyPath="yes">
+        </File>
+      </Component>
+      <Component Id="SQLite.Interop.dll" Guid="{25B0A491-15FA-4CA7-B976-3931DE135FB6}" Win64="yes">
+        <File Id="SQLite.Interop.dll"
+              Source="$(var.CloneFinderCore.TargetDir)$(var.CloneFinderCore.Platform)\SQLite.Interop.dll"
               KeyPath="yes">
         </File>
       </Component>
@@ -72,6 +100,29 @@
               KeyPath="yes">
         </File>
       </Component>
+      <Component Id="CloneFinderShell.bat" Guid="*" Win64="yes">
+        <File Id="CloneFinderShell.bat"
+              Source="$(var.CloneFinder.TargetDir)CloneFinderShell.bat"
+              Name="CloneFinderShell.bat" KeyPath="yes" >
+          <Shortcut Id="CloneFinderShellDesktopShortcut"
+              Directory="DesktopFolder"
+              Name="CloneFinder Shell"
+              Description="CloneFinder shell with path setting"
+              WorkingDirectory="INSTALLFOLDER"
+              IconIndex="0"
+              Icon="cmd.exe"
+              Advertise="yes" >
+          </Shortcut>
+          <Shortcut Id="CloneFinderShellProgramMenuShortcut"
+            Directory="ProgramMenuDir"
+            Name="CloneFinder Shell"
+            WorkingDirectory="INSTALLFOLDER"
+            Icon="cmd.exe"
+            IconIndex="0"
+            Advertise="yes">
+          </Shortcut>
+        </File>
+      </Component>
       <Component Id="CloneFinder.exe.config" Guid="*" >
         <File Id="$(var.CloneFinder.TargetFileName).config"
               Source="$(var.CloneFinder.TargetPath).config"
@@ -82,6 +133,23 @@
         <File Id="$(var.CloneFinderFrontEnd.TargetFileName)"
               Source="$(var.CloneFinderFrontEnd.TargetPath)"
               KeyPath="yes">
+          <Shortcut Id="CloneFinderFrontEndDesktopShortcut"
+              Directory="DesktopFolder"
+              Name="CloneFinder"
+              Description="CloneFinder GUI"
+              WorkingDirectory="INSTALLFOLDER"
+              Icon="CloneFinderFrontEnd.exe"
+              IconIndex="0"
+              Advertise="yes" >
+          </Shortcut>
+          <Shortcut Id="CloneFinderFrontEndProgramMenuShortcut"
+            Directory="ProgramMenuDir"
+            Name="CloneFinder"
+            WorkingDirectory="INSTALLFOLDER"
+            Icon="CloneFinderFrontEnd.exe"
+            IconIndex="0"
+            Advertise="yes">
+          </Shortcut>
         </File>
       </Component>
       <Component Id="CloneFinderFrontEnd.exe.config" Guid="*" >
@@ -90,8 +158,6 @@
               KeyPath="yes">
         </File>
       </Component>
-      
-      
-		</ComponentGroup>
-	</Fragment>
+    </ComponentGroup>
+  </Fragment>
 </Wix>

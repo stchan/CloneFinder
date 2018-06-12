@@ -1,0 +1,49 @@
+**CloneFinder** is a duplicate file finder for Windows. 
+
+**Requirements**<br/>
+64-bit Windows 7/2008R2, and .Net framework 4.6.2 is required.
+
+**License**<br/>
+CloneFinder is released under the MIT X11 license.
+
+**Command line Usage:**
+
+		CloneFinder [-c] [-p] path
+
+	Options:
+		-c, --csv        Display results as comma separated values (CSV).
+		-p, --progress   Show progress indicator.
+
+	Example:
+
+		CloneFinder -c c:\temp
+
+	Searches for duplicates in c:\temp, and outputs results in CSV format.
+
+**GUI Notes:**<br/>
+If you resize the window or grid columns, the GUI app will remember the new sizes.
+Select "Reset Default Sizes" from the "Tools" menu to reset window and column sizes back to defaults.
+
+**Third party**<br/>
+CloneFinder uses/includes the following third party components:
+- Code from MSDN for a breadth-first directory traversal.
+- System.Data.SQLite library (v1.0.66 in particular)
+- [CommandLine Parser library (v1.8 stable)][1] 
+- Free or CC licensed artwork. (Icons (C) 2008 GoSquared Ltd.)
+- Installer graphics from Open Clip Art (public domain):<br/>
+&nbsp; - [Amateur Astronomer][2]<br/>
+&nbsp; - [Spyglass][3]<br/>
+
+[1]: <http://commandline.codeplex.com/> 
+[2]: <http://openclipart.org/detail/139579/amateur-astronomer-by-sunking2/>
+[3]: <http://openclipart.org/detail/28059/spyglass1-by-crimperman/>
+
+
+**TO DO**<br/>
+Redo the GUI with WPF.
+
+**ChangeLog**<br/>
+1.1.0 - Added command line interface<br/>
+1.0.2 - Fixes for installer, and icon changes<br/>
+1.0.1 - First usable public release<br/>
+1.0.0 - Initial commit to github<br/>

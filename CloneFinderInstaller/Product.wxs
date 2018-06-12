@@ -72,16 +72,15 @@
 
   <Fragment>
     <ComponentGroup Id="ProductComponents" Directory="INSTALLFOLDER">
-      <!-- TODO: Remove the comments around this Component element and the ComponentRef below in order to add resources to this installer. -->
-      <!-- <Component Id="ProductComponent"> -->
-      <!-- TODO: Insert files, registry keys, and other resources here. -->
-      <!-- </Component> -->
       <Component Id="System.Data.SQLite.dll" Guid="{890500AD-CD22-4CCC-924D-7FEE11F63078}" Win64="yes">
         <File Id="System.Data.SQLite.dll"
               Source="$(var.CloneFinderFrontEnd.TargetDir)System.Data.SQLite.dll"
               KeyPath="yes">
         </File>
       </Component>
+      <!-- This will only work if you set the target platform to x64 -the assembly
+           won't be found if you select AnyCPU 
+      -->
       <Component Id="SQLite.Interop.dll" Guid="{25B0A491-15FA-4CA7-B976-3931DE135FB6}" Win64="yes">
         <File Id="SQLite.Interop.dll"
               Source="$(var.CloneFinderCore.TargetDir)$(var.CloneFinderCore.Platform)\SQLite.Interop.dll"

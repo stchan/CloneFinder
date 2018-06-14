@@ -43,6 +43,7 @@ CloneFinder uses/includes the following third party components:
 Redo the GUI with WPF.
 
 **ChangeLog**<br/>
+1.2.0 - Installer is now a WiX project. SQLite upgraded to v1.0.108</br>
 1.1.0 - Added command line interface<br/>
 1.0.2 - Fixes for installer, and icon changes<br/>
 1.0.1 - First usable public release<br/>

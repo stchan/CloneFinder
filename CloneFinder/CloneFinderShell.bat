@@ -1,1 +1,1 @@
-@start cmd /k "set Path=%CD%;%Path%"
+@start "CloneFinder" cmd /k "set Path=%CD%;%Path%;  & cd /d %UserProfile%"

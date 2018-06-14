@@ -1,4 +1,4 @@
-**CloneFinder** is a duplicate file finder for Windows. 
+**CloneFinder** is a duplicate file finder for Windows. Check the [releases](https://github.com/stchan/CloneFinder/releases) page to download a prebuilt MSI package.
 
 **Requirements**<br/>
 64-bit Windows 7/2008R2, and .Net framework 4.6.2 is required.

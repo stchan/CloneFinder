@@ -1,2 +1,0 @@
-    <Icon Id="icon.ico" SourceFile="..\common\CloneFinderIcons.ico"/>
-    <Property Id="ARPPRODUCTICON" Value="icon.ico" />    

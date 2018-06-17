@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Wix xmlns="http://schemas.microsoft.com/wix/2006/wi" xmlns:netfx ="http://schemas.microsoft.com/wix/NetFxExtension">
   <!-- Change Product Id, and Version with every new release -->
-  <Product Id="{3EBCF124-F511-4E6C-AD49-5C387E6B4E1D}"
+  <Product Id="{4982714C-7704-442E-B477-555BBD57EEC8}"
              Name="CloneFinder" Language="1033"
-             Version="1.2.0.0"
+             Version="1.2.1.0"
              Manufacturer="Black Telescope Workshop"
              UpgradeCode="3d5cff97-2d29-4f94-b281-b3a3ceab1053">
     <Package InstallerVersion="500"
@@ -84,6 +84,12 @@
       <Component Id="SQLite.Interop.dll" Guid="{25B0A491-15FA-4CA7-B976-3931DE135FB6}" Win64="yes">
         <File Id="SQLite.Interop.dll"
               Source="$(var.CloneFinderCore.TargetDir)$(var.CloneFinderCore.Platform)\SQLite.Interop.dll"
+              KeyPath="yes">
+        </File>
+      </Component>
+      <Component Id="CommandLine.dll" Guid="{190E660D-D760-4834-AAA8-7E3D34373DED}" Win64="yes">
+        <File Id="CommandLine.dll"
+              Source="$(var.CloneFinder.TargetDir)CommandLine.dll"
               KeyPath="yes">
         </File>
       </Component>

@@ -3,9 +3,9 @@
   <!-- Change Product Id, and Version with every new release -->
   <Product Id="{4982714C-7704-442E-B477-555BBD57EEC8}"
              Name="CloneFinder" Language="1033"
-             Version="1.2.1.0"
+             Version="1.2.2.0"
              Manufacturer="Black Telescope Workshop"
-             UpgradeCode="3d5cff97-2d29-4f94-b281-b3a3ceab1053">
+             UpgradeCode="{D0A8A0C4-8680-4BEB-A7B8-74322E783F73}">
     <Package InstallerVersion="500"
              Compressed="yes"
              InstallScope="perMachine"

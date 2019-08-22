@@ -60,13 +60,13 @@ namespace CloneFinder
                             Console.WriteLine();
                             Console.WriteLine(String.Format(reportMessageHashCode, lastHash));
                         }
-                        Console.WriteLine(duplicateFiles[loop].FilePath + duplicateFiles[loop].Name);
+                        Console.WriteLine(Path.Combine(duplicateFiles[loop].FilePath, duplicateFiles[loop].Name));
                     }
                     else
                     {
                         // Comma separated output requested
                         Console.WriteLine(String.Format(reportMessageCSVOutput,
-                                                        duplicateFiles[loop].FilePath + duplicateFiles[loop].Name,
+                                                        Path.Combine(duplicateFiles[loop].FilePath, duplicateFiles[loop].Name),
                                                         duplicateFiles[loop].FileHash));
                     }
                 }

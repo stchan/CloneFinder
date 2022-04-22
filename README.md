@@ -40,7 +40,7 @@ CloneFinder uses/includes the following third party components:
 
 
 **ChangeLog**<br/>
-1.2.3 - Targets .NET 4.8. Replaced MD5 with SHA512.
+1.2.3 - Targets .NET 4.8. Replaced MD5 with SHA512.<br/>
 1.2.2 - Fix for issue #1<br/>
 1.2.1 - Product code changed (GUID was accidentally duplicated from another project)<br/>
 1.2.0 - Installer is now a WiX project. SQLite upgraded to v1.0.108<br/>

@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Wix xmlns="http://schemas.microsoft.com/wix/2006/wi" xmlns:netfx ="http://schemas.microsoft.com/wix/NetFxExtension">
   <!-- Change Product Id, and Version with every new release -->
-  <Product Id="{4982714C-7704-442E-B477-555BBD57EEC8}"
+  <Product Id="*"
              Name="CloneFinder" Language="1033"
-             Version="1.2.2.0"
+             Version="1.2.3.0"
              Manufacturer="Black Telescope Workshop"
              UpgradeCode="{D0A8A0C4-8680-4BEB-A7B8-74322E783F73}">
     <Package InstallerVersion="500"

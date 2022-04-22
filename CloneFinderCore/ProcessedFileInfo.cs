@@ -18,13 +18,13 @@ namespace CloneFinderCore
                                  String name,
                                  long? length,
                                  DateTime? modificationTime,
-                                 String fileHash)
+                                 String hash)
         {
             this.fileFullPath = path;
             this.fileName = name;
             this.fileLength = length;
             this.fileModificationTime = modificationTime;
-            this.md5Hash = fileHash;
+            this.fileHash = hash;
         }
         #endregion
 
@@ -70,14 +70,14 @@ namespace CloneFinderCore
             set { this.fileModificationTime = value; }
         }
 
-        private String md5Hash;
+        private String fileHash;
         /// <summary>
         /// File hash value, as a hex string
         /// </summary>
         public String FileHash
         {
-            get { return this.md5Hash; }
-            set { this.md5Hash = value; }
+            get { return this.fileHash; }
+            set { this.fileHash = value; }
         }
         #endregion
 

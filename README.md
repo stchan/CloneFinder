@@ -1,7 +1,7 @@
 **CloneFinder** is a duplicate file finder for Windows. Check the [releases](https://github.com/stchan/CloneFinder/releases) page to download a prebuilt MSI package.
 
 **Requirements**<br/>
-64-bit Windows 7/2008R2, and .Net framework 4.6.2 is required.
+64-bit Windows / .Net framework 4.8 is required.
 
 **License**<br/>
 CloneFinder is released under the MIT X11 license.
@@ -39,10 +39,8 @@ CloneFinder uses/includes the following third party components:
 [3]: <http://openclipart.org/detail/28059/spyglass1-by-crimperman/>
 
 
-**TO DO**<br/>
-Redo the GUI with WPF.
-
 **ChangeLog**<br/>
+1.2.3 - Targets .NET 4.8
 1.2.2 - Fix for issue #1<br/>
 1.2.1 - Product code changed (GUID was accidentally duplicated from another project)<br/>
 1.2.0 - Installer is now a WiX project. SQLite upgraded to v1.0.108<br/>

@@ -47,13 +47,17 @@
     <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Remove="Properties\DataSources\**" />
+    <Compile Remove="Resources\**" />
+    <EmbeddedResource Remove="Properties\DataSources\**" />
+    <EmbeddedResource Remove="Resources\**" />
+    <None Remove="Properties\DataSources\**" />
+    <None Remove="Resources\**" />
+  </ItemGroup>
+  <ItemGroup>
     <Compile Include="..\common\SharedAssemblyInfo.cs">
       <Link>Properties\SharedAssemblyInfo.cs</Link>
     </Compile>
-  </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Properties\DataSources\" />
-    <Folder Include="Resources\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="CloneFinderIcons.ico" />

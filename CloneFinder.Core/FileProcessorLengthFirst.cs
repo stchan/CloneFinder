@@ -5,7 +5,7 @@ using System.Data.SQLite;
 using System.IO;
 using System.Text;
 
-namespace CloneFinderCore
+namespace CloneFinder.Core
 {
     /// <summary>
     /// This file processor class finds duplicates by

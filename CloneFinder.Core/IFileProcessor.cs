@@ -3,7 +3,7 @@ using System.Collections.ObjectModel;
 using System.IO;
 using System.Text;
 
-namespace CloneFinderCore
+namespace CloneFinder.Core
 {
     public interface IFileProcessor
     {

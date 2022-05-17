@@ -1,4 +1,6 @@
-﻿namespace CloneFinderFrontEnd
+﻿using CloneFinder.Core;
+
+namespace CloneFinderFrontEnd
 {
     partial class MainWindow
     {
@@ -282,7 +284,7 @@
             // 
             // processedFileInfoBindingSource
             // 
-            this.processedFileInfoBindingSource.DataSource = typeof(CloneFinderCore.ProcessedFileInfo);
+            this.processedFileInfoBindingSource.DataSource = typeof(ProcessedFileInfo);
             // 
             // MainWindow
             // 

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace CloneFinderCore
+namespace CloneFinder.Core
 {
     public class ProcessedFileInfo
     {

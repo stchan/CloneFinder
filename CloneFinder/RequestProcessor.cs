@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.IO;
 
+using CloneFinder.Core;
 
 namespace CloneFinder
 {
@@ -24,27 +25,27 @@ namespace CloneFinder
 
         public void FindDuplicates(Options commandLineOptions)
         {
-            CloneFinderCore.DirectoryWalker duplicateWalker = new CloneFinderCore.DirectoryWalker(commandLineOptions.Items[0]);
+            DirectoryWalker duplicateWalker = new DirectoryWalker(commandLineOptions.Items[0]);
             if (commandLineOptions.progressIndicator)
             {
-                duplicateWalker.FileProcessed += new EventHandler<CloneFinderCore.DirectoryWalkEventArgs>(duplicateWalker_FileProcessed);
-                duplicateWalker.DirectoryWalkComplete += new EventHandler<CloneFinderCore.DirectoryWalkEventArgs>(duplicateWalker_DirectoryWalkComplete);
+                duplicateWalker.FileProcessed += new EventHandler<DirectoryWalkEventArgs>(duplicateWalker_FileProcessed);
+                duplicateWalker.DirectoryWalkComplete += new EventHandler<DirectoryWalkEventArgs>(duplicateWalker_DirectoryWalkComplete);
             }
-            Collection<CloneFinderCore.ProcessedFileInfo> duplicateFiles = duplicateWalker.WalkDirectory();
+            Collection<ProcessedFileInfo> duplicateFiles = duplicateWalker.WalkDirectory();
             WriteResults(duplicateFiles, commandLineOptions.csvOutput);
         }
 
-        void duplicateWalker_DirectoryWalkComplete(object sender, CloneFinderCore.DirectoryWalkEventArgs e)
+        void duplicateWalker_DirectoryWalkComplete(object sender, DirectoryWalkEventArgs e)
         {
             Console.WriteLine(reportMessageComputingHashes);
         }
 
-        private void duplicateWalker_FileProcessed(object sender, CloneFinderCore.DirectoryWalkEventArgs e)
+        private void duplicateWalker_FileProcessed(object sender, DirectoryWalkEventArgs e)
         {
             Console.WriteLine("Processed: " + e.Name);
         }
 
-        private void WriteResults(Collection<CloneFinderCore.ProcessedFileInfo> duplicateFiles, bool writeAsCSV)
+        private void WriteResults(Collection<ProcessedFileInfo> duplicateFiles, bool writeAsCSV)
         {
             if (duplicateFiles.Count > 0)
             {

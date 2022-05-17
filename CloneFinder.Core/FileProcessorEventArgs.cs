@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace CloneFinderCore
+namespace CloneFinder.Core
 {
     public enum FileProcessorOperationResult
     {

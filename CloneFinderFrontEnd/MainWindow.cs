@@ -9,6 +9,8 @@ using System.IO;
 using System.Text;
 using System.Windows.Forms;
 
+using CloneFinder.Core;
+
 namespace CloneFinderFrontEnd
 {
     public partial class MainWindow : Form
@@ -204,7 +206,7 @@ namespace CloneFinderFrontEnd
             if (!e.Cancelled)
             {
                 this.dataGridViewResults.DataSource = null;
-                Collection<CloneFinderCore.ProcessedFileInfo> duplicates = e.Result as Collection<CloneFinderCore.ProcessedFileInfo>;
+                Collection<ProcessedFileInfo> duplicates = e.Result as Collection<ProcessedFileInfo>;
                 if (duplicates != null && duplicates.Count > 0)
                 {
                     this.dataGridViewResults.DataSource = duplicates;
@@ -237,25 +239,25 @@ namespace CloneFinderFrontEnd
         void backgroundWorkerSearch_DoWork(object sender, DoWorkEventArgs e)
         {
            
-            CloneFinderCore.DirectoryWalker directoryWalk = new CloneFinderCore.DirectoryWalker(this.textBoxSearchPath.Text);
-            directoryWalk.FileProcessed += new EventHandler<CloneFinderCore.DirectoryWalkEventArgs>(directoryWalk_FileProcessed);
-            directoryWalk.FileAccessed += new EventHandler<CloneFinderCore.DirectoryWalkEventArgs>(directoryWalk_FileAccessed);
-            directoryWalk.DirectoryWalkComplete += new EventHandler<CloneFinderCore.DirectoryWalkEventArgs>(directoryWalk_DirectoryWalkComplete);
-            Collection<CloneFinderCore.ProcessedFileInfo> duplicates = directoryWalk.WalkDirectory();
+            DirectoryWalker directoryWalk = new DirectoryWalker(this.textBoxSearchPath.Text);
+            directoryWalk.FileProcessed += new EventHandler<DirectoryWalkEventArgs>(directoryWalk_FileProcessed);
+            directoryWalk.FileAccessed += new EventHandler<DirectoryWalkEventArgs>(directoryWalk_FileAccessed);
+            directoryWalk.DirectoryWalkComplete += new EventHandler<DirectoryWalkEventArgs>(directoryWalk_DirectoryWalkComplete);
+            Collection<ProcessedFileInfo> duplicates = directoryWalk.WalkDirectory();
             e.Result = duplicates;
         }
 
-        void directoryWalk_DirectoryWalkComplete(object sender, CloneFinderCore.DirectoryWalkEventArgs e)
+        void directoryWalk_DirectoryWalkComplete(object sender, DirectoryWalkEventArgs e)
         {
             this.backgroundWorkerSearch.ReportProgress(0, e.Message);
         }
 
-        void directoryWalk_FileAccessed(object sender, CloneFinderCore.DirectoryWalkEventArgs e)
+        void directoryWalk_FileAccessed(object sender, DirectoryWalkEventArgs e)
         {
             this.backgroundWorkerSearch.ReportProgress(0, e.Message + " " + e.FullPath + e.Name);
         }
 
-        void directoryWalk_FileProcessed(object sender, CloneFinderCore.DirectoryWalkEventArgs e)
+        void directoryWalk_FileProcessed(object sender, DirectoryWalkEventArgs e)
         {
             this.backgroundWorkerSearch.ReportProgress(0, e.Message + " " + e.FullPath + e.Name);
         }
@@ -364,8 +366,8 @@ namespace CloneFinderFrontEnd
                 {
                     this.labelStatus.Text = String.Empty;
                     this.dataGridViewResults.DataSource = null;
-                    CloneFinderCore.DirectoryWalker directoryWalk = new CloneFinderCore.DirectoryWalker(this.textBoxSearchPath.Text);
-                    Collection<CloneFinderCore.ProcessedFileInfo> duplicates = directoryWalk.WalkDirectory();
+                    DirectoryWalker directoryWalk = new DirectoryWalker(this.textBoxSearchPath.Text);
+                    Collection<ProcessedFileInfo> duplicates = directoryWalk.WalkDirectory();
                     if (duplicates != null && duplicates.Count > 0)
                     {
                         this.dataGridViewResults.DataSource = duplicates;

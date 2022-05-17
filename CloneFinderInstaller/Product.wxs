@@ -17,11 +17,6 @@
 
 		<Property Id="ARPPRODUCTICON" Value="CloneFinderIcons.ico" />
 
-		<!-- .NET 4.8 prerequisite -->
-		<PropertyRef Id="WIXNETFX4RELEASEINSTALLED" />
-		<Condition Message='[ProductName] requires .NET Framework 4.8 (or later).'>
-			<![CDATA[Installed or (WIXNETFX4RELEASEINSTALLED >= "#528040")]]>
-		</Condition>
 		<Condition Message="64-bit Windows is required.">
 			<![CDATA[Installed OR VersionNT64]]>
 		</Condition>
@@ -111,6 +106,7 @@
 				<File Id="CloneFinderShell.bat"
 					  Source="$(var.CloneFinder.TargetDir)CloneFinderShell.bat"
 					  Name="CloneFinderShell.bat" KeyPath="yes" >
+					<!--
 					<Shortcut Id="CloneFinderShellDesktopShortcut"
 						Directory="DesktopFolder"
 						Name="CloneFinder Shell"
@@ -120,6 +116,7 @@
 						Icon="cmd.exe"
 						Advertise="yes" >
 					</Shortcut>
+					-->
 					<Shortcut Id="CloneFinderShellProgramMenuShortcut"
 					  Directory="ProgramMenuDir"
 					  Name="CloneFinder Shell"
@@ -140,6 +137,7 @@
 				<File Id="$(var.CloneFinderFrontEnd.TargetFileName)"
 					  Source="$(var.CloneFinderFrontEnd.TargetPath)"
 					  KeyPath="yes">
+					<!--
 					<Shortcut Id="CloneFinderFrontEndDesktopShortcut"
 						Directory="DesktopFolder"
 						Name="CloneFinder"
@@ -149,6 +147,7 @@
 						IconIndex="0"
 						Advertise="yes" >
 					</Shortcut>
+					-->
 					<Shortcut Id="CloneFinderFrontEndProgramMenuShortcut"
 					  Directory="ProgramMenuDir"
 					  Name="CloneFinder"

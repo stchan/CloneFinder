@@ -77,12 +77,6 @@
     <None Include="app.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\CloneFinderCore\CloneFinderCore.csproj">
-      <Project>{7E660F22-41CE-4CB4-B45D-E773B6557279}</Project>
-      <Name>CloneFinderCore</Name>
-    </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
     <PackageReference Include="xunit">
       <Version>2.4.1</Version>
     </PackageReference>

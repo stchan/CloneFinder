@@ -1,0 +1,25 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+	<PropertyGroup>
+		<TargetFramework>net6.0</TargetFramework>
+		<ImplicitUsings>enable</ImplicitUsings>
+		<Nullable>disable</Nullable>
+		<DebugType>embedded</DebugType>
+		<GenerateAssemblyInfo>false</GenerateAssemblyInfo>
+		<ApplicationIcon>CloneFinderIcons.ico</ApplicationIcon>
+		<ProduceReferenceAssembly>False</ProduceReferenceAssembly>
+	</PropertyGroup>
+
+	<ItemGroup>
+		<Compile Include="..\common\SharedAssemblyInfo.cs" Link="SharedAssemblyInfo.cs" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <Content Include="CloneFinderIcons.ico" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<PackageReference Include="Stub.System.Data.SQLite.Core.NetStandard" Version="1.0.115.5" />
+	</ItemGroup>
+
+</Project>

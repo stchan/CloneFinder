@@ -41,14 +41,6 @@
     </WixExtension>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\CloneFinderCore\CloneFinderCore.csproj">
-      <Name>CloneFinderCore</Name>
-      <Project>{7e660f22-41ce-4cb4-b45d-e773b6557279}</Project>
-      <Private>True</Private>
-      <DoNotHarvest>True</DoNotHarvest>
-      <RefProjectOutputGroups>Binaries;Content;Satellites</RefProjectOutputGroups>
-      <RefTargetDir>INSTALLFOLDER</RefTargetDir>
-    </ProjectReference>
     <ProjectReference Include="..\CloneFinderFrontEnd\CloneFinderFrontEnd.csproj">
       <Name>CloneFinderFrontEnd</Name>
       <Project>{38f8c4e3-cbf4-4870-80dc-da119f6b3e62}</Project>

@@ -1,7 +1,7 @@
 **CloneFinder** is a duplicate file finder for Windows. Check the [releases](https://github.com/stchan/CloneFinder/releases) page to download a prebuilt MSI package.
 
 **Requirements**<br/>
-64-bit Windows / .NET framework 4.8 are required.
+64-bit Windows with .NET 6.0 support.
 
 **License**<br/>
 CloneFinder is released under the MIT X11 license.
@@ -40,6 +40,7 @@ CloneFinder uses/includes the following third party components:
 
 
 **ChangeLog**<br/>
+2.0.0 - Targets .NET 6.0. Single file deployment. No new functionality.
 1.2.3 - Targets .NET 4.8. Replaced MD5 with SHA512.<br/>
 1.2.2 - Fix for issue #1<br/>
 1.2.1 - Product code changed (GUID was accidentally duplicated from another project)<br/>

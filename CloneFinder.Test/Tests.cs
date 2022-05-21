@@ -7,6 +7,7 @@ using System.Text;
 using Xunit;
 
 using CloneFinder.Core;
+#nullable disable
 
 namespace CloneFinder.CoreTests
 {
@@ -74,11 +75,29 @@ namespace CloneFinder.CoreTests
         [Fact]
         public void InitialDirectoryWalk()
         {
-            String userProfileDir = Environment.GetEnvironmentVariable("UserProfile");
-            DirectoryWalker testDirectoryWalk = new DirectoryWalker(userProfileDir);
+            String targetDir = Environment.GetEnvironmentVariable("UserProfile");
+            targetDir = Path.Combine(targetDir, "Downloads");
+            int fileCount = Directory.GetFiles(targetDir, "*", SearchOption.AllDirectories).Length;
+            //int directoryCount = Directory.GetDirectories(userProfileDir, "*", SearchOption.AllDirectories).Length;
+            DirectoryWalker testDirectoryWalk = new DirectoryWalker(targetDir);
             testDirectoryWalk.DirectoryWalkStarted += new EventHandler<DirectoryWalkEventArgs>(DirectoryWalk_DirectoryWalkStarted);
             testDirectoryWalk.DirectoryWalkComplete += new EventHandler<DirectoryWalkEventArgs>(DirectoryWalk_DirectoryWalkComplete);
+            testDirectoryWalk.FileAccessed += new EventHandler<DirectoryWalkEventArgs>(DirectoryWalk_DirectoryWalkFileAccessed);
+            testDirectoryWalk.FileProcessed += new EventHandler<DirectoryWalkEventArgs>(DirectoryWalk_DirectoryWalkFileProcessed);
             testDirectoryWalk.WalkDirectory();
+            Assert.True(this.directoryWalkFileProcessedEventCount == (fileCount));
+        }
+
+        int directoryWalkFileProcessedEventCount = 0;
+        private void DirectoryWalk_DirectoryWalkFileProcessed(object sender, DirectoryWalkEventArgs e)
+        {
+            directoryWalkFileProcessedEventCount++;
+        }
+
+        int directoryWalkFileAccessedEventCount = 0;
+        private void DirectoryWalk_DirectoryWalkFileAccessed(object sender, DirectoryWalkEventArgs e)
+        {
+            this.directoryWalkFileAccessedEventCount++;
         }
 
         int directoryWalkCompletedEventCount = 0;

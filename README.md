@@ -4,7 +4,7 @@
 64-bit Windows with .NET 6.0 support.
 
 **License**<br/>
-CloneFinder is released under the MIT X11 license.
+CloneFinder is MIT X11 licensed.
 
 **Command line Usage:**
 
@@ -24,7 +24,7 @@ CloneFinder is released under the MIT X11 license.
 If you resize the window or grid columns, the GUI app will remember the new sizes.
 Select "Reset Default Sizes" from the "Tools" menu to reset window and column sizes back to defaults.
 
-**Third party**<br/>
+**Third party components**<br/>
 CloneFinder uses/includes the following third party components:
 - Code from MSDN for a breadth-first directory traversal.
 - System.Data.SQLite library (v1.0.108)

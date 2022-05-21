@@ -69,42 +69,15 @@
 
 	<Fragment>
 		<ComponentGroup Id="ProductComponents" Directory="INSTALLFOLDER">
-			<Component Id="System.Data.SQLite.dll" Guid="{890500AD-CD22-4CCC-924D-7FEE11F63078}" Win64="yes">
-				<File Id="System.Data.SQLite.dll"
-					  Source="$(var.CloneFinderFrontEnd.TargetDir)System.Data.SQLite.dll"
-					  KeyPath="yes">
-				</File>
-			</Component>
-			<!-- This will only work if you set the target platform to x64 -the assembly
-           won't be found if you select AnyCPU 
-      -->
-			<Component Id="SQLite.Interop.dll" Guid="{25B0A491-15FA-4CA7-B976-3931DE135FB6}" Win64="yes">
-				<File Id="SQLite.Interop.dll"
-					  Source="$(var.CloneFinderCore.TargetDir)$(var.CloneFinderCore.Platform)\SQLite.Interop.dll"
-					  KeyPath="yes">
-				</File>
-			</Component>
-			<Component Id="CommandLine.dll" Guid="{190E660D-D760-4834-AAA8-7E3D34373DED}" Win64="yes">
-				<File Id="CommandLine.dll"
-					  Source="$(var.CloneFinder.TargetDir)CommandLine.dll"
-					  KeyPath="yes">
-				</File>
-			</Component>
-			<Component Id="CloneFinderCore.dll" Guid="*" Win64="yes">
-				<File Id="$(var.CloneFinderCore.TargetFileName)"
-					  Source="$(var.CloneFinderCore.TargetPath)"
-					  KeyPath="yes">
-				</File>
-			</Component>
 			<Component Id="CloneFinder.exe" Guid="*" Win64="yes">
-				<File Id="$(var.CloneFinder.TargetFileName)"
-					  Source="$(var.CloneFinder.TargetPath)"
+				<File Id="CloneFinder.exe"
+					  Source="$(var.CloneFinder.TargetDir)publish\win-x64\CloneFinder.exe"
 					  KeyPath="yes">
 				</File>
 			</Component>
 			<Component Id="CloneFinderShell.bat" Guid="*" Win64="yes">
 				<File Id="CloneFinderShell.bat"
-					  Source="$(var.CloneFinder.TargetDir)CloneFinderShell.bat"
+					  Source="$(var.CloneFinder.TargetDir)publish\win-x64\CloneFinderShell.bat"
 					  Name="CloneFinderShell.bat" KeyPath="yes" >
 					<!--
 					<Shortcut Id="CloneFinderShellDesktopShortcut"
@@ -127,15 +100,9 @@
 					</Shortcut>
 				</File>
 			</Component>
-			<Component Id="CloneFinder.exe.config" Guid="*" >
-				<File Id="$(var.CloneFinder.TargetFileName).config"
-					  Source="$(var.CloneFinder.TargetPath).config"
-					  KeyPath="yes">
-				</File>
-			</Component>
 			<Component Id="CloneFinderFrontEnd.exe" Guid="*" Win64="yes">
-				<File Id="$(var.CloneFinderFrontEnd.TargetFileName)"
-					  Source="$(var.CloneFinderFrontEnd.TargetPath)"
+				<File Id="CloneFinderFrontEnd.exe"
+					  Source="$(var.CloneFinderFrontEnd.TargetDir)publish\win-x64\CloneFinderFrontEnd.exe"
 					  KeyPath="yes">
 					<!--
 					<Shortcut Id="CloneFinderFrontEndDesktopShortcut"
@@ -158,9 +125,9 @@
 					</Shortcut>
 				</File>
 			</Component>
-			<Component Id="CloneFinderFrontEnd.exe.config" Guid="*" >
-				<File Id="$(var.CloneFinderFrontEnd.TargetFileName).config"
-					  Source="$(var.CloneFinderFrontEnd.TargetPath).config"
+			<Component Id="CloneFinderFrontEnd.dll.config" Guid="*" >
+				<File Id="$(var.CloneFinderFrontEnd.TargetFileName)"
+					  Source="$(var.CloneFinderFrontEnd.TargetDir)publish\win-x64\$(var.CloneFinderFrontEnd.TargetFileName).config"
 					  KeyPath="yes">
 				</File>
 			</Component>

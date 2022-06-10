@@ -28,15 +28,11 @@ Select "Reset Default Sizes" from the "Tools" menu to reset window and column si
 CloneFinder uses/includes the following third party components:
 - Code from MSDN for a breadth-first directory traversal.
 - System.Data.SQLite library (v1.0.108)
-- [CommandLine Parser library (v1.8 stable)][1] 
+- CommandLine Parser library (v1.8 stable) 
 - Free or CC licensed artwork. (Icons (C) 2008 GoSquared Ltd.)
 - Installer graphics from Open Clip Art (public domain):<br/>
-&nbsp; - [Amateur Astronomer][2]<br/>
-&nbsp; - [Spyglass][3]<br/>
-
-[1]: <http://commandline.codeplex.com/> 
-[2]: <http://openclipart.org/detail/139579/amateur-astronomer-by-sunking2/>
-[3]: <http://openclipart.org/detail/28059/spyglass1-by-crimperman/>
+&nbsp; - Amateur Astronomer<br/>
+&nbsp; - Spyglass<br/>
 
 
 **ChangeLog**<br/>

@@ -91,6 +91,6 @@ copy $(TargetDir)%2a$(TargetExt) ..\Publish\$(PlatformName)</PostBuildEvent>
   <PropertyGroup>
     <PreBuildEvent>cd $(SolutionDir)
 dotnet publish .\CloneFinder\CloneFinder.csproj /p:Configuration=Release /p:PublishProfile=CloneFinder_win-x64.pubxml
-dotnet publish .\CloneFinderFrontEnd\CloneFinderFrontEnd.csproj /p:Configuration=Release /p:PublishProfile=CloneFinderFrontEnd_win-x64.pub.xml</PreBuildEvent>
+dotnet publish .\CloneFinderFrontEnd\CloneFinderFrontEnd.csproj /p:Configuration=Release /p:PublishProfile=CloneFinderFrontEnd_win-x64.pubxml</PreBuildEvent>
   </PropertyGroup>
 </Project>

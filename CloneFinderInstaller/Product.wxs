@@ -3,7 +3,7 @@
 	<!-- Change Product Id, and Version with every new release -->
 	<Product Id="*"
 			   Name="CloneFinder" Language="1033"
-			   Version="2.0.0.0"
+			   Version="2.0.1.0"
 			   Manufacturer="Black Telescope Workshop"
 			   UpgradeCode="{D0A8A0C4-8680-4BEB-A7B8-74322E783F73}">
 		<Package InstallerVersion="500"
@@ -17,10 +17,9 @@
 
 		<Property Id="ARPPRODUCTICON" Value="CloneFinderIcons.ico" />
 
-		<Condition Message="64-bit Windows is required.">
-			<![CDATA[Installed OR VersionNT64]]>
+		<Condition Message="[ProductName] must be installed on 64-bit Windows 8.1 / Server 2012 R2 or newer.">
+			<![CDATA[Installed OR (VersionNT >= 603)]]>
 		</Condition>
-
 		<!-- Check if the user has administrator privileges -->
 		<Property Id="MSIUSEREALADMINDETECTION" Value="1" />
 

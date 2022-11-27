@@ -17,7 +17,7 @@
 
 		<Property Id="ARPPRODUCTICON" Value="CloneFinderIcons.ico" />
 
-		<Condition Message="[ProductName] must be installed on 64-bit Windows 8.1 / Server 2012 R2 or newer.">
+		<Condition Message="Windows 8.1/Server 2012R2 or newer are required.">
 			<![CDATA[Installed OR (VersionNT >= 603)]]>
 		</Condition>
 		<!-- Check if the user has administrator privileges -->

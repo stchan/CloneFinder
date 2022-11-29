@@ -15,14 +15,14 @@
 		<MediaTemplate EmbedCab="yes" />
 
 
-		<Property Id="ARPPRODUCTICON" Value="CloneFinderIcons.ico" />
 
 		<Condition Message="Windows 8.1/Server 2012R2 or newer are required.">
 			<![CDATA[Installed OR (VersionNT >= 603)]]>
 		</Condition>
+		
+		<Property Id="ARPPRODUCTICON" Value="CloneFinderIcons.ico" />
 		<!-- Check if the user has administrator privileges -->
 		<Property Id="MSIUSEREALADMINDETECTION" Value="1" />
-
 		<!-- Use the UI that allows an install directory to be chosen-->
 		<Property Id="WIXUI_INSTALLDIR" Value="INSTALLFOLDER" />
 		<WixVariable Id="WixUILicenseRtf" Value="X11 License.rtf" />
@@ -31,8 +31,9 @@
 		<UIRef Id="WixUI_InstallDir" />
 
 
-		<Feature Id="ProductFeature" Title="CloneFinderInstaller" Level="1">
+		<Feature Id="ProductFeature" Title="CloneFinder" Level="1" Absent="disallow">
 			<ComponentGroupRef Id="ProductComponents" />
+			<ComponentGroupRef Id="EnvironmentChanges" />
 			<ComponentRef Id="ProgramMenuDir"/>
 		</Feature>
 	</Product>
@@ -129,6 +130,12 @@
 					  Source="$(var.CloneFinderFrontEnd.TargetDir)publish\win-x64\$(var.CloneFinderFrontEnd.TargetFileName).config"
 					  KeyPath="yes">
 				</File>
+			</Component>
+		</ComponentGroup>
+		<ComponentGroup Id="EnvironmentChanges" Directory="TARGETDIR">
+			<Component Id="SystemPathUpdate" Guid="{2719B63C-2DA7-422F-9DE1-A9564BD7FC34}">
+				<!-- add CloneFinder to the system path -->
+				<Environment Id="CLONEFINDERPATH" Name="PATH" Value="[INSTALLFOLDER]" Permanent="no" Part="last" Action="set" System="yes" />
 			</Component>
 		</ComponentGroup>
 	</Fragment>

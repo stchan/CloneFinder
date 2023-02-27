@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<Wix xmlns="http://schemas.microsoft.com/wix/2006/wi" xmlns:netfx ="http://schemas.microsoft.com/wix/NetFxExtension">
-	<!-- Change Product Id, and Version with every new release -->
+<Wix xmlns="http://schemas.microsoft.com/wix/2006/wi" >
+	<!-- Change Version with every new release -->
 	<Product Id="*"
 			   Name="CloneFinder" Language="1033"
 			   Version="2.1.0.0"

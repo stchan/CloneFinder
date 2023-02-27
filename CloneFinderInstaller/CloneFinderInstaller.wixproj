@@ -35,10 +35,6 @@
       <HintPath>..\lib\WixUIExtension.dll</HintPath>
       <Name>WixUIExtension</Name>
     </WixExtension>
-    <WixExtension Include="WixNetFxExtension">
-      <HintPath>..\lib\WixNetFxExtension.dll</HintPath>
-      <Name>WixNetFxExtension</Name>
-    </WixExtension>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\CloneFinderFrontEnd\CloneFinderFrontEnd.csproj">

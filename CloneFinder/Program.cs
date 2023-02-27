@@ -22,14 +22,14 @@ namespace CloneFinder
         {
             try
             {
-                Options commandLineOptions = new Options();
-                ICommandLineParser commandParser = new CommandLineParser();
-                if (commandParser.ParseArguments(args, commandLineOptions, Console.Error))
+                ParserResult<Options> parseResult = Parser.Default.ParseArguments<Options>(args); 
+                if (parseResult.Tag == ParserResultType.Parsed)
                 {
-                    if (ValidateOptions(commandLineOptions))
+                    IOptions parsedOptions = ((Parsed<Options>)(parseResult)).Value;
+                    if (parsedOptions.Validates())
                     {
                         RequestProcessor duplicateProcessor = new RequestProcessor();
-                        duplicateProcessor.FindDuplicates(commandLineOptions);
+                        duplicateProcessor.FindDuplicates(parsedOptions);
                     }
                 }
                 else
@@ -50,45 +50,6 @@ namespace CloneFinder
             }
         }
 
-        private static bool ValidateOptions(Options commandLineOptions)
-        {
-            bool validatedOK = true;
-            StringBuilder errorMessage = new StringBuilder();
-
-            // Make sure we've been passed valid path(s),
-            // and that we have read permissions
-            if (commandLineOptions.Items.Count > 0)
-            {
-                // only going to run the loop once -
-                // leaving this here for future enhancement which
-                // will allow multiple paths to be specified
-                for (int loop = 0; loop < 1; loop++)
-                {
-                    if (!Directory.Exists(commandLineOptions.Items[loop]))
-                    {
-                        validatedOK = false;
-                        errorMessage.AppendFormat(messagePathNotFound, commandLineOptions.Items[loop]);
-                        errorMessage.AppendLine();
-                    }
-                }
-            }
-            else
-            {
-                // No path to search was specified
-                validatedOK = false;
-                errorMessage.AppendLine();
-                errorMessage.Append(messageNoPathSpecified);
-            }
-            if (!validatedOK)
-            {
-                // Tell the user there was a problem
-                // and we're not going to find
-                // their precious duplicates
-                Console.Error.WriteLine(errorMessage.ToString());
-                Environment.ExitCode = 1;
-            }
-            return validatedOK;
-        }
 
 
     }

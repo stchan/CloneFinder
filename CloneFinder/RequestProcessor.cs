@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.IO;
-
+using System.Linq;
 using CloneFinder.Core;
 
 namespace CloneFinder
@@ -23,16 +23,16 @@ namespace CloneFinder
 
         const String reportMessageCSVOutput = "\"{0}\", \"{1}\"";
 
-        public void FindDuplicates(Options commandLineOptions)
+        public void FindDuplicates(IOptions commandLineOptions)
         {
-            DirectoryWalker duplicateWalker = new DirectoryWalker(commandLineOptions.Items[0]);
-            if (commandLineOptions.progressIndicator)
+            DirectoryWalker duplicateWalker = new DirectoryWalker(commandLineOptions.SearchPath.ToArray().ElementAt(0));
+            if (commandLineOptions.ProgressIndicator)
             {
                 duplicateWalker.FileProcessed += new EventHandler<DirectoryWalkEventArgs>(duplicateWalker_FileProcessed);
                 duplicateWalker.DirectoryWalkComplete += new EventHandler<DirectoryWalkEventArgs>(duplicateWalker_DirectoryWalkComplete);
             }
             Collection<ProcessedFileInfo> duplicateFiles = duplicateWalker.WalkDirectory();
-            WriteResults(duplicateFiles, commandLineOptions.csvOutput);
+            WriteResults(duplicateFiles, commandLineOptions.CsvOutput);
         }
 
         void duplicateWalker_DirectoryWalkComplete(object sender, DirectoryWalkEventArgs e)

@@ -19,7 +19,7 @@
 	</ItemGroup>
 
 	<ItemGroup>
-		<PackageReference Include="Stub.System.Data.SQLite.Core.NetStandard" Version="1.0.115.5" />
+		<PackageReference Include="Stub.System.Data.SQLite.Core.NetStandard" Version="1.0.117" />
 	</ItemGroup>
 
 </Project>

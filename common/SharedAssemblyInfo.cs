@@ -8,7 +8,7 @@ using System.Security.Permissions;
 // associated with an assembly.
 [assembly: AssemblyCompany("Black Telescope Workshop")]
 [assembly: AssemblyProduct("CloneFinder")]
-[assembly: AssemblyCopyright("Copyright © Sherman Chan 2010 - 2022")]
+[assembly: AssemblyCopyright("Copyright © Sherman Chan 2010 - 2023")]
 [assembly: AssemblyTrademark("")]
 
 // Make it easy to distinguish Debug and Release builds;
@@ -26,4 +26,4 @@ using System.Security.Permissions;
 // COM, set the ComVisible attribute to true on that type.
 [assembly: ComVisible(false)]
 
-[assembly: AssemblyVersion("2.0.1.0")]
+[assembly: AssemblyVersion("2.1.0.0")]

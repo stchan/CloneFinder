@@ -41,27 +41,10 @@ namespace CloneFinder
         [Option('p', "progress", Required = false, HelpText = "Show progress indicator.")]
         public bool ProgressIndicator { get; set; }
 
-        [Value(0, Required = true, HelpText = "Path to search.")]
+        [Value(0, Required = true, HelpText = "Path to search.", Hidden = true)]
         public IEnumerable<string> SearchPath { get; set; }
 
-        /*
-        [HelpOption(HelpText = "Display this help text.")]
-        public String ShowUsage()
-        {
-            StringBuilder helpMessage = new StringBuilder();
-            helpMessage.AppendLine("Usage:");
-            helpMessage.AppendLine("\n   CloneFinder [-c] [-p] path");
-            helpMessage.AppendLine("\nOptions:");
-            helpMessage.AppendLine("   -c, --csv        Display results as comma separated values (CSV).");
-            helpMessage.AppendLine("   -p, --progress   Show progress indicator.");
-            helpMessage.AppendLine("\nExample:");
-            helpMessage.AppendLine("\n   CloneFinder -c c:\\temp");
-            helpMessage.AppendLine("\nSearches for duplicates in c:\\temp, and outputs results in CSV format.");
-            return helpMessage.ToString();
-        }
-        */
-
-        [Usage(ApplicationAlias = "clonefinder")]
+        [Usage(ApplicationAlias = "clonefinder.exe")]
         public static IEnumerable<Example> Examples
         {
             get
@@ -69,8 +52,8 @@ namespace CloneFinder
                 return new List<Example>()
                 {
                     new Example(@"Search for duplicates in c:\temp", new Options { SearchPath = new string[] { @"c:\temp"}}),
-                    new Example(@"Search for duplicates in c:\temp, and output results in CSV format.", new Options { SearchPath = new string[] { @"c:\temp"}, CsvOutput = true }),
-                    new Example(@"Search for duplicates in c:\temp, output results in CSV format, and show progress indicator.", new Options { SearchPath = new string[] { @"c:\temp"}, CsvOutput = true, ProgressIndicator = true })
+                    new Example(@"Search for duplicates in c:\temp, and output results in CSV format", new Options { SearchPath = new string[] { @"c:\temp"}, CsvOutput = true }),
+                    new Example(@"Search for duplicates in c:\temp, output results in CSV format, and show progress indicator", new Options { SearchPath = new string[] { @"c:\temp"}, CsvOutput = true, ProgressIndicator = true })
                 };
             }
         }
@@ -108,7 +91,6 @@ namespace CloneFinder
                 // and we're not going to find
                 // their precious duplicates
                 Console.Error.WriteLine(errorMessage.ToString());
-                //Environment.ExitCode = 1;
             }
             return validatedOK;
         }

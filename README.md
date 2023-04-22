@@ -36,6 +36,7 @@ CloneFinder uses/includes the following third party components:
 
 
 **ChangeLog**<br/>
+2.1.0 - Package updates. No new functionality.<br/>
 2.0.1 - Maintenance release. No new functionality.<br/>
 2.0.0 - Targets .NET 6.0. Single file deployment. No new functionality.<br/>
 1.2.3 - Targets .NET 4.8. Replaced MD5 with SHA512.<br/>

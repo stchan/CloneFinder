@@ -14,7 +14,7 @@ namespace CloneFinderFrontEnd
         static void Main()
         {
             Application.EnableVisualStyles();
-            Application.SetHighDpiMode(HighDpiMode.SystemAware);
+            Application.SetHighDpiMode(HighDpiMode.DpiUnawareGdiScaled);
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new MainWindow());
         }

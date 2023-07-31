@@ -33,11 +33,6 @@
 		<Content Include="CloneFinderIcons.ico" />
 	</ItemGroup>
 	<ItemGroup>
-		<None Update="CloneFinderShell.bat">
-			<CopyToOutputDirectory>Always</CopyToOutputDirectory>
-		</None>
-	</ItemGroup>
-	<ItemGroup>
 		<PackageReference Include="CommandLineParser" Version="2.9.1" />
 		<PackageReference Include="Microsoft.CSharp" Version="4.7.0" />
 		<PackageReference Include="Stub.System.Data.SQLite.Core.NetStandard">

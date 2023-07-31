@@ -25,10 +25,8 @@ If you resize the window or grid columns, the GUI app will remember the new size
 Select "Reset Default Sizes" from the "Tools" menu to reset window and column sizes back to defaults.
 
 **Third party components**<br/>
-CloneFinder uses/includes the following third party components:
+In addition to any NuGet packages, CloneFinder uses/includes the following third party components:
 - Code from MSDN for a breadth-first directory traversal.
-- System.Data.SQLite library (v1.0.108)
-- CommandLine Parser library (v1.8 stable) 
 - Free or CC licensed artwork. (Icons (C) 2008 GoSquared Ltd.)
 - Installer graphics from Open Clip Art (public domain):<br/>
 &nbsp; - Amateur Astronomer<br/>
@@ -36,6 +34,7 @@ CloneFinder uses/includes the following third party components:
 
 
 **ChangeLog**<br/>
+2.1.1 - Disabled high DPI scaling (issue #2).</br>
 2.1.0 - Package updates. No new functionality.<br/>
 2.0.1 - Maintenance release. No new functionality.<br/>
 2.0.0 - Targets .NET 6.0. Single file deployment. No new functionality.<br/>

@@ -40,7 +40,6 @@
 
 	<!-- Icon files -->
 	<Fragment>
-		<Icon Id="cmd.exe" SourceFile="$(env.ComSpec)"/>
 		<Icon Id="CloneFinderIcons.ico" SourceFile="..\common\CloneFinderIcons.ico"/>
 		<!-- we need a second entry for this icon file because the shortcuts won't show
          the proper icon if the Icon element's Id doesn't end in exe.
@@ -73,31 +72,6 @@
 				<File Id="CloneFinder.exe"
 					  Source="$(var.CloneFinder.TargetDir)publish\win-x64\CloneFinder.exe"
 					  KeyPath="yes">
-				</File>
-			</Component>
-			<Component Id="CloneFinderShell.bat" Guid="*" Win64="yes">
-				<File Id="CloneFinderShell.bat"
-					  Source="$(var.CloneFinder.TargetDir)publish\win-x64\CloneFinderShell.bat"
-					  Name="CloneFinderShell.bat" KeyPath="yes" >
-					<!--
-					<Shortcut Id="CloneFinderShellDesktopShortcut"
-						Directory="DesktopFolder"
-						Name="CloneFinder Shell"
-						Description="CloneFinder shell with path setting"
-						WorkingDirectory="INSTALLFOLDER"
-						IconIndex="0"
-						Icon="cmd.exe"
-						Advertise="yes" >
-					</Shortcut>
-					-->
-					<Shortcut Id="CloneFinderShellProgramMenuShortcut"
-					  Directory="ProgramMenuDir"
-					  Name="CloneFinder Shell"
-					  WorkingDirectory="INSTALLFOLDER"
-					  Icon="cmd.exe"
-					  IconIndex="0"
-					  Advertise="yes">
-					</Shortcut>
 				</File>
 			</Component>
 			<Component Id="CloneFinderFrontEnd.exe" Guid="*" Win64="yes">

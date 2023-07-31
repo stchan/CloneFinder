@@ -15,10 +15,8 @@ namespace CloneFinderFrontEnd
         {
             InitializeComponent();
             WireEvents();
-            //this.Text = String.Format("About {0}", AssemblyTitle);
             this.labelProductName.Text = AssemblyProduct;
             this.labelVersion.Text = String.Format("Version {0}", AssemblyVersion);
-            //this.labelVersion.Text = String.Format("Version {0}", AssemblyFileVersion);
             this.labelCopyright.Text = AssemblyCopyright;
             this.labelCompanyName.Text = AssemblyCompany;
             this.textBoxDescription.Text = AssemblyDescription;
@@ -49,7 +47,7 @@ namespace CloneFinderFrontEnd
                         return titleAttribute.Title;
                     }
                 }
-                return System.IO.Path.GetFileNameWithoutExtension(Assembly.GetExecutingAssembly().CodeBase);
+                return System.IO.Path.GetFileNameWithoutExtension(Environment.ProcessPath);
             }
         }
 

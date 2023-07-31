@@ -39,7 +39,7 @@ namespace CloneFinder.Core
             String fileHashAsString = null;
             using (StreamReader fileStream = new StreamReader(filePath))
             {
-                using (SHA512CryptoServiceProvider hashProvider = new SHA512CryptoServiceProvider())
+                using (SHA512 hashProvider = SHA512.Create())
                 {
                     fileHashAsString = BitConverter.ToString(hashProvider.ComputeHash(fileStream.BaseStream));
                 }

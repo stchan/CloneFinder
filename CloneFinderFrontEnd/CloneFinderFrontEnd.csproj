@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 	<PropertyGroup>
 		<TargetFramework>net6.0-windows</TargetFramework>
 		<Platform Condition=" '$(Platform)' == '' ">x86</Platform>
@@ -62,14 +62,11 @@
 	<ItemGroup>
 		<PackageReference Include="Microsoft.CSharp" Version="4.7.0" />
 		<PackageReference Include="Stub.System.Data.SQLite.Core.NetStandard">
-			<Version>1.0.117</Version>
+			<Version>1.0.118</Version>
 		</PackageReference>
 		<PackageReference Include="System.ComponentModel.Annotations" Version="5.0.0" />
 		<PackageReference Include="System.Data.DataSetExtensions" Version="4.5.0" />
-		<PackageReference Include="Microsoft.DotNet.UpgradeAssistant.Extensions.Default.Analyzers" Version="0.4.410601">
-			<PrivateAssets>all</PrivateAssets>
-		</PackageReference>
-		<PackageReference Include="Microsoft.Windows.Compatibility" Version="7.0.3" />
+		<PackageReference Include="Microsoft.Windows.Compatibility" Version="7.0.4" />
 	</ItemGroup>
 	<ItemGroup>
 	  <ProjectReference Include="..\CloneFinder.Core\CloneFinder.Core.csproj" />

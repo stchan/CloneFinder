@@ -25,7 +25,6 @@ If you resize the window or grid columns, the GUI app will remember the new size
 Select "Reset Default Sizes" from the "Tools" menu to reset window and column sizes back to defaults.
 
 **Third party components**<br/>
-In addition to any NuGet packages, CloneFinder uses/includes the following third party components:
 - Code from MSDN for a breadth-first directory traversal.
 - Free or CC licensed artwork. (Icons (C) 2008 GoSquared Ltd.)
 - Installer graphics from Open Clip Art (public domain):<br/>

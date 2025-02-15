@@ -1,24 +1,14 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<Wix xmlns="http://schemas.microsoft.com/wix/2006/wi" >
+﻿<Wix xmlns="http://wixtoolset.org/schemas/v4/wxs" xmlns:ui="http://wixtoolset.org/schemas/v4/wxs/ui">
 	<!-- Change Version with every new release -->
-	<Product Id="*"
-			   Name="CloneFinder" Language="1033"
-			   Version="2.1.1.0"
-			   Manufacturer="Black Telescope Workshop"
-			   UpgradeCode="{D0A8A0C4-8680-4BEB-A7B8-74322E783F73}">
-		<Package InstallerVersion="500"
-				 Compressed="yes"
-				 InstallScope="perMachine"
-				 Platform="x64" />
+	<Package Name="CloneFinder" Language="1033" Version="2.1.1.0" Manufacturer="Black Telescope Workshop" UpgradeCode="{D0A8A0C4-8680-4BEB-A7B8-74322E783F73}">
+		
 
 		<MajorUpgrade DowngradeErrorMessage="A newer version of [ProductName] is already installed." />
 		<MediaTemplate EmbedCab="yes" />
 
 
 
-		<Condition Message="Windows 8.1/Server 2012R2 or newer are required.">
-			<![CDATA[Installed OR (VersionNT >= 603)]]>
-		</Condition>
+		<Launch Condition="Installed OR (VersionNT &gt;= 603)" Message="Windows 8.1/Server 2012R2 or newer are required." />
 		
 		<Property Id="ARPPRODUCTICON" Value="CloneFinderIcons.ico" />
 		<!-- Check if the user has administrator privileges -->
@@ -28,56 +18,50 @@
 		<WixVariable Id="WixUILicenseRtf" Value="X11 License.rtf" />
 		<WixVariable Id="WixUIBannerBmp" Value="TopBanner.bmp" />
 		<WixVariable Id="WixUIDialogBmp" Value="BigBanner.bmp" />
-		<UIRef Id="WixUI_InstallDir" />
+		<ui:WixUI Id="WixUI_InstallDir" />
 
 
-		<Feature Id="ProductFeature" Title="CloneFinder" Level="1" Absent="disallow">
+		<Feature Id="ProductFeature" Title="CloneFinder" Level="1" AllowAbsent="no">
 			<ComponentGroupRef Id="ProductComponents" />
 			<ComponentGroupRef Id="EnvironmentChanges" />
-			<ComponentRef Id="ProgramMenuDir"/>
+			<ComponentRef Id="ProgramMenuDir" />
 		</Feature>
-	</Product>
+	</Package>
 
 	<!-- Icon files -->
 	<Fragment>
-		<Icon Id="CloneFinderIcons.ico" SourceFile="..\common\CloneFinderIcons.ico"/>
+		<Icon Id="CloneFinderIcons.ico" SourceFile="..\common\CloneFinderIcons.ico" />
 		<!-- we need a second entry for this icon file because the shortcuts won't show
          the proper icon if the Icon element's Id doesn't end in exe.
      -->
-		<Icon Id="CloneFinderFrontEnd.exe" SourceFile="..\common\CloneFinderIcons.ico"/>
+		<Icon Id="CloneFinderFrontEnd.exe" SourceFile="..\common\CloneFinderIcons.ico" />
 	</Fragment>
 
 	<Fragment>
-		<Directory Id="TARGETDIR" Name="SourceDir">
-			<Directory Id="DesktopFolder" Name="Desktop"/>
-			<Directory Id="ProgramFiles64Folder">
+			<StandardDirectory Id="DesktopFolder" />
+			<StandardDirectory Id="ProgramFiles64Folder">
 				<Directory Id="INSTALLFOLDER" Name="CloneFinder" />
-			</Directory>
+			</StandardDirectory>
 			<!-- Start menu and Desktop Shortcut directories -->
-			<Directory Id="ProgramMenuFolder" >
+			<StandardDirectory Id="ProgramMenuFolder">
 				<Directory Id="ProgramMenuDir" Name="CloneFinder">
 					<Component Id="ProgramMenuDir" Guid="{B841C88B-647C-4EDF-A743-6FBFD080BF15}">
 						<RemoveFolder Id="ProgramMenuDir" On="uninstall" />
 						<RegistryValue Root="HKMU" Key="Software\[ProductName]" Type="string" Value="" KeyPath="yes" />
 					</Component>
 				</Directory>
-			</Directory>
-		</Directory>
-	</Fragment>
+			</StandardDirectory>
+		</Fragment>
 
 
 	<Fragment>
 		<ComponentGroup Id="ProductComponents" Directory="INSTALLFOLDER">
-			<Component Id="CloneFinder.exe" Guid="*" Win64="yes">
-				<File Id="CloneFinder.exe"
-					  Source="$(var.CloneFinder.TargetDir)publish\win-x64\CloneFinder.exe"
-					  KeyPath="yes">
+			<Component Id="CloneFinder.exe" Bitness="always64">
+				<File Id="CloneFinder.exe" Source="$(var.CloneFinder.TargetDir)publish\win-x64\CloneFinder.exe" KeyPath="yes">
 				</File>
 			</Component>
-			<Component Id="CloneFinderFrontEnd.exe" Guid="*" Win64="yes">
-				<File Id="CloneFinderFrontEnd.exe"
-					  Source="$(var.CloneFinderFrontEnd.TargetDir)publish\win-x64\CloneFinderFrontEnd.exe"
-					  KeyPath="yes">
+			<Component Id="CloneFinderFrontEnd.exe" Bitness="always64">
+				<File Id="CloneFinderFrontEnd.exe" Source="$(var.CloneFinderFrontEnd.TargetDir)publish\win-x64\CloneFinderFrontEnd.exe" KeyPath="yes">
 					<!--
 					<Shortcut Id="CloneFinderFrontEndDesktopShortcut"
 						Directory="DesktopFolder"
@@ -89,20 +73,12 @@
 						Advertise="yes" >
 					</Shortcut>
 					-->
-					<Shortcut Id="CloneFinderFrontEndProgramMenuShortcut"
-					  Directory="ProgramMenuDir"
-					  Name="CloneFinder"
-					  WorkingDirectory="INSTALLFOLDER"
-					  Icon="CloneFinderFrontEnd.exe"
-					  IconIndex="0"
-					  Advertise="yes">
+					<Shortcut Id="CloneFinderFrontEndProgramMenuShortcut" Directory="ProgramMenuDir" Name="CloneFinder" WorkingDirectory="INSTALLFOLDER" Icon="CloneFinderFrontEnd.exe" IconIndex="0" Advertise="yes">
 					</Shortcut>
 				</File>
 			</Component>
-			<Component Id="CloneFinderFrontEnd.dll.config" Guid="*" >
-				<File Id="$(var.CloneFinderFrontEnd.TargetFileName)"
-					  Source="$(var.CloneFinderFrontEnd.TargetDir)publish\win-x64\$(var.CloneFinderFrontEnd.TargetFileName).config"
-					  KeyPath="yes">
+			<Component Id="CloneFinderFrontEnd.dll.config">
+				<File Id="$(var.CloneFinderFrontEnd.TargetFileName)" Source="$(var.CloneFinderFrontEnd.TargetDir)publish\win-x64\$(var.CloneFinderFrontEnd.TargetFileName).config" KeyPath="yes">
 				</File>
 			</Component>
 		</ComponentGroup>

@@ -21,8 +21,8 @@ CloneFinder is MIT X11 licensed.
 	Searches for duplicates in c:\temp, and outputs results in CSV format.
 
 **GUI Notes:**<br/>
-If you resize the window or grid columns, the GUI app will remember the new sizes.
-Select "Reset Default Sizes" from the "Tools" menu to reset window and column sizes back to defaults.
+The GUI app will retain window sizing on subsequent launches.
+Select "Reset Default Sizes" from the "Tools" menu to reset sizes back to defaults.
 
 **Third party components**<br/>
 - Code from MSDN for a breadth-first directory traversal.
@@ -33,6 +33,7 @@ Select "Reset Default Sizes" from the "Tools" menu to reset window and column si
 
 
 **ChangeLog**<br/>
+2.2.0 - Targets .NET 8.0. Upgrade WiX. No new functionality.<br/>
 2.1.1 - Disabled high DPI scaling (issue #2).</br>
 2.1.0 - Package updates. No new functionality.<br/>
 2.0.1 - Maintenance release. No new functionality.<br/>

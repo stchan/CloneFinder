@@ -63,7 +63,7 @@ namespace CloneFinderFrontEnd
         {
             get
             {
-                FileVersionInfo versionInfo = FileVersionInfo.GetVersionInfo(Assembly.GetExecutingAssembly().Location);
+                FileVersionInfo versionInfo = FileVersionInfo.GetVersionInfo(Assembly.GetEntryAssembly().Location);
                 return versionInfo.FileVersion;
             }
         }

@@ -1,12 +1,7 @@
 ﻿<Wix xmlns="http://wixtoolset.org/schemas/v4/wxs" xmlns:ui="http://wixtoolset.org/schemas/v4/wxs/ui">
-	<!-- Change Version with every new release -->
-	<Package Name="CloneFinder" Language="1033" Version="2.1.1.0" Manufacturer="Black Telescope Workshop" UpgradeCode="{D0A8A0C4-8680-4BEB-A7B8-74322E783F73}">
-		
-
-		<MajorUpgrade DowngradeErrorMessage="A newer version of [ProductName] is already installed." />
+	<Package Name="$(ProductName)" Language="1033" Version="$(ProductVersion)" Manufacturer="$(ProductManufacturer)" UpgradeCode="{D0A8A0C4-8680-4BEB-A7B8-74322E783F73}" Scope="perMachine">
+		<MajorUpgrade DowngradeErrorMessage="A newer version of [ProductName] is already installed." AllowSameVersionUpgrades="no" />
 		<MediaTemplate EmbedCab="yes" />
-
-
 
 		<Launch Condition="Installed OR (VersionNT &gt;= 603)" Message="Windows 8.1/Server 2012R2 or newer are required." />
 		

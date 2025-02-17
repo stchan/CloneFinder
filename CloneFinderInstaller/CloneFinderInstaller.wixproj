@@ -1,51 +1,48 @@
-<Project>
-  <Import Project="Sdk.props" Sdk="WixToolset.Sdk" Version="5.0.2" />
-  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
-    <DefineConstants>Debug</DefineConstants>
-  </PropertyGroup>
-  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x64' ">
-    <DefineConstants>Debug</DefineConstants>
-    <OutputPath>bin\$(Platform)\$(Configuration)\</OutputPath>
-    <IntermediateOutputPath>obj\$(Platform)\$(Configuration)\</IntermediateOutputPath>
-  </PropertyGroup>
-  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x64' ">
-    <OutputPath>bin\$(Platform)\$(Configuration)\</OutputPath>
-    <IntermediateOutputPath>obj\$(Platform)\$(Configuration)\</IntermediateOutputPath>
-  </PropertyGroup>
-  <ItemGroup>
-    <PackageReference Include="WixToolset.UI.wixext" Version="5.0.2" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\CloneFinderFrontEnd\CloneFinderFrontEnd.csproj">
-      <Name>CloneFinderFrontEnd</Name>
-      <Project>{38f8c4e3-cbf4-4870-80dc-da119f6b3e62}</Project>
-      <Private>True</Private>
-      <DoNotHarvest>True</DoNotHarvest>
-      <RefProjectOutputGroups>Binaries;Content;Satellites</RefProjectOutputGroups>
-      <RefTargetDir>INSTALLFOLDER</RefTargetDir>
-    </ProjectReference>
-    <ProjectReference Include="..\CloneFinder\CloneFinder.csproj">
-      <Name>CloneFinder</Name>
-      <Project>{3a0771a8-cc5b-4365-9acb-716088af6e0d}</Project>
-      <Private>True</Private>
-      <DoNotHarvest>True</DoNotHarvest>
-      <RefProjectOutputGroups>Binaries;Content;Satellites</RefProjectOutputGroups>
-      <RefTargetDir>INSTALLFOLDER</RefTargetDir>
-    </ProjectReference>
-  </ItemGroup>
-  <Import Project="Sdk.targets" Sdk="WixToolset.Sdk" Version="5.0.2" />
-  <Target Name="BeforeBuild">
-    <GetAssemblyIdentity AssemblyFiles="..\CloneFinder\bin\$(Configuration)\net6.0-windows\CloneFinder.dll">
-      <Output TaskParameter="Assemblies" ItemName="AsmInfo" />
-    </GetAssemblyIdentity>
-    <CreateProperty Value="CloneFinder_$(Platform)_%(AsmInfo.Version)">
-      <Output TaskParameter="Value" PropertyName="TargetName" />
-    </CreateProperty>
-  </Target>
-  <Target Name="PreBuild" BeforeTargets="PreBuildEvent">
-    <Exec Command="cd $(SolutionDir)&#xA;dotnet publish .\CloneFinder\CloneFinder.csproj /p:Configuration=Release /p:PublishProfile=CloneFinder_win-x64.pubxml&#xA;dotnet publish .\CloneFinderFrontEnd\CloneFinderFrontEnd.csproj /p:Configuration=Release /p:PublishProfile=CloneFinderFrontEnd_win-x64.pubxml" />
-  </Target>
-  <Target Name="PostBuild" AfterTargets="PostBuildEvent">
-    <Exec Command="cd $(ProjectDir)&#xA;if not exist &quot;..\Publish\&quot; (&#xA;    mkdir &quot;..\Publish&quot;&#xA;)&#xA;if not exist &quot;..\Publish\$(PlatformName)\&quot; (&#xA;    mkdir &quot;..\Publish\$(PlatformName)&quot;&#xA;)&#xA;&#xA;copy $(TargetDir)%2a$(TargetExt) ..\Publish\$(PlatformName)" />
-  </Target>
+﻿<Project>
+	<Import Project="Sdk.props" Sdk="WixToolset.Sdk" Version="5.0.2" />
+	<PropertyGroup Label="Globals">
+		<DefineConstants>ProductVersion=$(Version);ProductManufacturer=$(Company);ProductName=$(ProductName);</DefineConstants>
+	</PropertyGroup>
+	<PropertyGroup>
+		<OutputName>CloneFinder_$(ProductVersion)_$(Platform)</OutputName>
+	</PropertyGroup>
+	<PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x64' ">
+		<DefineConstants>Debug</DefineConstants>
+		<OutputPath>bin\$(Platform)\$(Configuration)\</OutputPath>
+		<IntermediateOutputPath>obj\$(Platform)\$(Configuration)\</IntermediateOutputPath>
+	</PropertyGroup>
+	<PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x64' ">
+		<OutputPath>bin\$(Platform)\$(Configuration)\</OutputPath>
+		<IntermediateOutputPath>obj\$(Platform)\$(Configuration)\</IntermediateOutputPath>
+	</PropertyGroup>
+	<ItemGroup>
+		<PackageReference Include="WixToolset.UI.wixext" Version="5.0.2" />
+	</ItemGroup>
+	<ItemGroup>
+		<ProjectReference Include="..\CloneFinderFrontEnd\CloneFinderFrontEnd.csproj">
+			<Name>CloneFinderFrontEnd</Name>
+			<Project>{38f8c4e3-cbf4-4870-80dc-da119f6b3e62}</Project>
+			<Private>True</Private>
+			<DoNotHarvest>True</DoNotHarvest>
+			<RefProjectOutputGroups>Binaries;Content;Satellites</RefProjectOutputGroups>
+			<RefTargetDir>INSTALLFOLDER</RefTargetDir>
+		</ProjectReference>
+		<ProjectReference Include="..\CloneFinder\CloneFinder.csproj">
+			<Name>CloneFinder</Name>
+			<Project>{3a0771a8-cc5b-4365-9acb-716088af6e0d}</Project>
+			<Private>True</Private>
+			<DoNotHarvest>True</DoNotHarvest>
+			<RefProjectOutputGroups>Binaries;Content;Satellites</RefProjectOutputGroups>
+			<RefTargetDir>INSTALLFOLDER</RefTargetDir>
+		</ProjectReference>
+	</ItemGroup>
+	<Import Project="Sdk.targets" Sdk="WixToolset.Sdk" Version="5.0.2" />
+	<Target Name="PreBuild" BeforeTargets="PreBuildEvent">
+		<Exec Command="cd $(SolutionDir)&#xA;dotnet publish .\CloneFinder\CloneFinder.csproj /p:Configuration=Release /p:PublishProfile=CloneFinder_win-x64.pubxml&#xA;dotnet publish .\CloneFinderFrontEnd\CloneFinderFrontEnd.csproj /p:Configuration=Release /p:PublishProfile=CloneFinderFrontEnd_win-x64.pubxml" />
+	</Target>
+	<Target Name="PostBuild" AfterTargets="PostBuildEvent">
+		<Exec Command="cd $(ProjectDir)&#xA;if not exist &quot;..\Publish\&quot; (&#xA;    mkdir &quot;..\Publish&quot;&#xA;)&#xA;if not exist &quot;..\Publish\$(PlatformName)\&quot; (&#xA;    mkdir &quot;..\Publish\$(PlatformName)&quot;&#xA;)&#xA;&#xA;copy $(TargetDir)%2a$(TargetExt) ..\Publish\$(PlatformName)" />
+	</Target>
+	<!-- CollectSuggestedVisualStudioComponentIds target is a temporary workaround for a bug in VS 2022 17.13 -->
+	<Target Name="CollectSuggestedVisualStudioComponentIds" />
 </Project>

@@ -7,6 +7,7 @@
 		<ProductName>CloneFinder</ProductName>
 		<AssemblyVersion>2.2.0</AssemblyVersion>
 		<FileVersion>2.2.0</FileVersion>
+		<ProductVersion>2.2.0</ProductVersion>
 		<Version>2.2.0</Version>
 	</PropertyGroup>
 </Project>

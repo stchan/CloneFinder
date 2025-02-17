@@ -1,7 +1,7 @@
 ﻿<Project>
 	<Import Project="Sdk.props" Sdk="WixToolset.Sdk" Version="5.0.2" />
 	<PropertyGroup Label="Globals">
-		<DefineConstants>ProductVersion=$(Version);ProductManufacturer=$(Company);ProductName=$(ProductName);</DefineConstants>
+		<DefineConstants>ProductVersion=$(ProductVersion);ProductManufacturer=$(Company);ProductName=$(ProductName);</DefineConstants>
 	</PropertyGroup>
 	<PropertyGroup>
 		<OutputName>CloneFinder_$(ProductVersion)_$(Platform)</OutputName>

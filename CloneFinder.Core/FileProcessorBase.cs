@@ -37,11 +37,11 @@ namespace CloneFinder.Core
         protected virtual String ComputeFileHash(String filePath)
         {
             String fileHashAsString = null;
-            using (StreamReader fileStream = new StreamReader(filePath))
+            using (FileStream fileStream = new FileStream(filePath, FileMode.Open, FileAccess.Read, FileShare.Read))
             {
                 using (SHA512 hashProvider = SHA512.Create())
                 {
-                    fileHashAsString = BitConverter.ToString(hashProvider.ComputeHash(fileStream.BaseStream));
+                    fileHashAsString = BitConverter.ToString(hashProvider.ComputeHash(fileStream));
                 }
             }
             return fileHashAsString;

@@ -1,3 +1,5 @@
+[![.NET](https://github.com/stchan/CloneFinder/actions/workflows/dotnet.yml/badge.svg)](https://github.com/stchan/CloneFinder/actions/workflows/dotnet.yml)
+
 **CloneFinder** is a duplicate file finder for Windows. Check the [releases](https://github.com/stchan/CloneFinder/releases) page to download a prebuilt MSI package.
 
 **Requirements**<br/>

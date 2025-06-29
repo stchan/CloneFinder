@@ -43,6 +43,6 @@
 	<Target Name="PostBuild" AfterTargets="PostBuildEvent">
 		<Exec Command="cd $(ProjectDir)&#xA;if not exist &quot;..\Publish\&quot; (&#xA;    mkdir &quot;..\Publish&quot;&#xA;)&#xA;if not exist &quot;..\Publish\$(PlatformName)\&quot; (&#xA;    mkdir &quot;..\Publish\$(PlatformName)&quot;&#xA;)&#xA;&#xA;copy $(TargetDir)%2a$(TargetExt) ..\Publish\$(PlatformName)" />
 	</Target>
-	<!-- CollectSuggestedVisualStudioComponentIds target is a temporary workaround for a bug in VS 2022 17.13 -->
-	<Target Name="CollectSuggestedVisualStudioComponentIds" />
+	<!-- CollectSuggestedVisualStudioComponentIds target is a temporary workaround for a bug in VS 2022 17.13
+	<Target Name="CollectSuggestedVisualStudioComponentIds" />  -->
 </Project>

@@ -29,7 +29,7 @@
 		<!-- we need a second entry for this icon file because the shortcuts won't show
          the proper icon if the Icon element's Id doesn't end in exe.
      -->
-		<Icon Id="CloneFinderFrontEnd.exe" SourceFile="..\common\CloneFinderIcons.ico" />
+		<Icon Id="FrontEnd.exe" SourceFile="..\common\CloneFinderIcons.ico" />
 	</Fragment>
 
 	<Fragment>
@@ -68,7 +68,7 @@
 						Advertise="yes" >
 					</Shortcut>
 					-->
-					<Shortcut Id="CloneFinderFrontEndProgramMenuShortcut" Directory="ProgramMenuDir" Name="CloneFinder" WorkingDirectory="INSTALLFOLDER" Icon="CloneFinderFrontEnd.exe" IconIndex="0" Advertise="yes">
+					<Shortcut Id="CloneFinderFrontEndProgramMenuShortcut" Directory="ProgramMenuDir" Name="CloneFinder" WorkingDirectory="INSTALLFOLDER" Icon="FrontEnd.exe" IconIndex="0" Advertise="yes">
 					</Shortcut>
 				</File>
 			</Component>

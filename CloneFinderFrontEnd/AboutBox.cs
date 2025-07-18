@@ -24,10 +24,10 @@ namespace CloneFinderFrontEnd
 
         private void WireEvents()
         {
-            this.okButton.Click += new EventHandler(okButton_Click);
+            this.okButton.Click += new EventHandler(OK_Click);
         }
 
-        void okButton_Click(object sender, EventArgs e)
+        void OK_Click(object sender, EventArgs e)
         {
             this.Close();
         }
@@ -64,6 +64,7 @@ namespace CloneFinderFrontEnd
             get
             {
                 FileVersionInfo versionInfo = FileVersionInfo.GetVersionInfo(Assembly.GetEntryAssembly().Location);
+             
                 return versionInfo.FileVersion;
             }
         }

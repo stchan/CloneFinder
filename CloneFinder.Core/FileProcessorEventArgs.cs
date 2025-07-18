@@ -12,7 +12,7 @@ namespace CloneFinder.Core
         Error
     }
 
-
+    /*
     public class FileProcessorEventArgs : EventArgs
     {
         #region Public properties
@@ -51,4 +51,5 @@ namespace CloneFinder.Core
         #endregion
 
     }
+    */
 }
